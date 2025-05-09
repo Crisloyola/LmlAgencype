@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'kantumbold';
+  src: url('/font/KantumBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: 'kantummedium';
+  src: url('/font/KantumMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+}
+
+@font-face {
+  font-family: 'kantumregular';
+  src: url('/font/KantumRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  @apply bg-[#131313];
+}
+
+
+header{
+  font-family: kantumbold;
+}
+
+h1{
+  font-family: kantumbold;
+}
+
+p{
+  font-family: kantumregular;
+}
+
+

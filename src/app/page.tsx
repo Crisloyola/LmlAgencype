@@ -1,0 +1,49 @@
+"use client";
+import Herosection from "./components/Herosection";
+import Navbar from "./components/NavbarSection";
+
+export default function Home() {
+  return (
+    <div className="relative min-h-screen overflow-hidden">
+      
+      {/* Fondo decorativo */}
+      <div className="absolute inset-0 z-0">
+        {/* Ruido */}
+        <img
+          src="/noise1.png"
+          className="absolute inset-0 w-full h-full object-cover"
+          alt="Fondo"
+        />
+
+        {/* midFont central */}
+        <div className="absolute left-1/2 top-0 lg:w-[1426px] md:w-[90vw] w-[95vw] -translate-x-1/2">
+          <img
+            src="/midFont.png"
+            className="w-full object-contain"
+            alt="Central"
+          />
+        </div>
+
+        {/* Izquierda */}
+        <img
+          src="/leftFont.png"
+          className="absolute -top-10 lg:left-[200px] md:left-[100px] left-[30px] lg:w-[691.16px] md:w-[400px] w-[250px] h-auto"
+          alt="Izquierda"
+        />
+
+        {/* Derecha */}
+        <img
+          src="/rightFont.png"
+          className="absolute -top-10 lg:left-[60%] md:left-[55%] left-[50%] lg:w-[519px] md:w-[350px] w-[200px] h-auto"
+          alt="Derecha"
+        />
+      </div>
+
+      {/* Contenido principal encima */}
+      <div className="relative z-10">
+        <Navbar />
+        <Herosection />
+      </div>
+    </div>
+  );
+}
