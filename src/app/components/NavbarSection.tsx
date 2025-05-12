@@ -11,7 +11,7 @@ export default function NavbarSection() {
           {/* Usar el Logo.svg directamente desde /public */}
           <Image src="/Logo.svg" alt="Logo" width={150} height={81} />
         </div>
-        <ul className="flex space-x-8  text-[18px]">
+        <ul className="flex space-x-8  text-[18px] nav">
           <li><Link href="#" className="hover:text-neon hover:text-[#B2FA03] transition ">Inicio</Link></li>
           <li><Link href="#" className="hover:text-neon hover:text-[#B2FA03] transition">Quienes Somos?</Link></li>
           <li><Link href="#" className="hover:text-neon hover:text-[#B2FA03] transition">Soluciones</Link></li>

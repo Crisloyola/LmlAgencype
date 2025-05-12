@@ -6,21 +6,21 @@ export default function Herosection() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Izquierda: texto */}
         <div className="flex-1 text-center lg:text-left space-y-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-[50px] xl:text-[65px] font-bold leading-tight bg-gradient-to-tr from-[#EDFFC2] to-[#B7CE7F] bg-clip-text text-transparent">
+          <h1 className="text-[40px] sm:text-5xl lg:text-[50px] xl:text-[65px] font-bold leading-tight bg-gradient-to-tr from-[#EDFFC2] to-[#B7CE7F] bg-clip-text text-transparent">
             ¿Buscas una experiencia única en entretenimiento digital?
           </h1>
 
-          <p className="text-sm sm:text-base leading-relaxed">
+          <p className="text-[15px] sm:text-base leading-relaxed lg:text-lg">
             En LML Agency, creamos momentos memorables. Somos una productora peruana con un equipo apasionado y con años de experiencia en la industria del entretenimiento. Nos especializamos en contenidos IRL, Esports y eventos especiales, colaborando con personalidades de la televisión y reconocidas marcas corporativas.
           </p>
 
-          <p className="text-sm sm:text-base leading-relaxed">
+          <p className="text-[15px] sm:text-base leading-relaxed lg:text-lg">
             Cada proyecto que realizamos lleva nuestro sello de calidad y compromiso al 100%. Si buscas innovación, creatividad y un enfoque profesional, estás en el lugar correcto.
           </p>
 
           {/* Logos de plataformas */}
           <div className="flex justify-center lg:justify-start items-center gap-6 mt-8">
-            <img src="/discord.svg" alt="Discord" className="w-[80px] sm:w-[100px] lg:w-[121px]" />
+            <img src="/discord.svg" alt="Discord" className="w-[140px] sm:w-[100px] lg:w-[121px]" />
             <img src="/twitch.svg" alt="Twitch" className="w-[80px] sm:w-[100px] lg:w-[90px]" />
             <img src="/kick.svg" alt="Kick" className="w-[80px] sm:w-[100px] lg:w-[90px]" />
           </div>
