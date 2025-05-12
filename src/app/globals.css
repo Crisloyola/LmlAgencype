@@ -39,7 +39,22 @@ h1{
 }
 
 p{
-  font-family: kantumregular;
+  font-family: kantummedium;
 }
 
+h3{
+  font-family: kantummedium;
+  font-size: 18px;
+}
+ul{
+  font-family: kantummedium;
+  font-size: 14px;
+}
+span{
+  font-family: kantumbold;
+}
 
+.parrafo{
+  font-family: kantummedium;
+  font-size: 14px;
+}
