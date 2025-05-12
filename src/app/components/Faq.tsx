@@ -45,16 +45,25 @@ export default function FAQWithImage() {
   };
 
   return (
-    <div className="text-white py-5 px-6 sm:px-4 lg:px-80 lg:py-16">
-      <div className="flex flex-col lg:flex-row gap-8 border px-5 py-5 border-[#33363F] rounded-[32] relative z-10">
+    <div
+      className="text-white py-5 px-4 sm:px-6 lg:px-2 relative"
+    >
+      <img
+        src="/fontFaq.png"
+        className="absolute top-[-200px] inset-x-0 h-auto object-cover w-full z-0"
+        alt="Fondo FAQ"
+      />
+      <div className="flex flex-col lg:flex-row gap-2 rounded-[32] px-4 py-5 border border-[#33363F] relative z-10 bg-black/50 backdrop-blur-md">
         {/* Columna de Preguntas */}
-        <div className="lg:w-1/2">
-          <h1 className="text-[55px] font-bold mb-6">Preguntas Frecuentes</h1>
-          <p className="mb-10 text-white text-[15px]">
+        <div className="lg:w-1/2 px-6 py-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold mb-6">
+            Preguntas Frecuentes
+          </h1>
+          <p className="mb-8 text-white text-sm sm:text-base">
             Encuentra respuestas rápidas a las dudas más comunes sobre nuestros
             servicios, eventos y procesos de trabajo.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {faqs.map((faq, index) => (
               <div
                 key={index}
@@ -66,7 +75,7 @@ export default function FAQWithImage() {
                   className="w-full text-left flex justify-between items-center focus:outline-none"
                   onClick={() => toggleFAQ(index)}
                 >
-                  <span className="text-[14px] titulo">
+                  <span className="text-sm sm:text-base titulo">
                     {index + 1}. {faq.question}
                   </span>
                   <span className="text-white">
@@ -74,7 +83,9 @@ export default function FAQWithImage() {
                   </span>
                 </button>
                 {openIndex === index && (
-                  <p className="mt-4 text-gray-300 text-[13px] parrafo">{faq.answer}</p>
+                  <p className="mt-4 text-gray-300 text-xs sm:text-sm parrafo">
+                    {faq.answer}
+                  </p>
                 )}
               </div>
             ))}
@@ -82,14 +93,15 @@ export default function FAQWithImage() {
         </div>
 
         {/* Columna de Imagen */}
-        <div className="lg:w-1/2 flex items-center justify-center">
+        <div className="lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
           <img
-            src="/agency/agency4.jpg" // Cambia esto por la URL de tu imagen
+            src="/agency/agency4.jpg"
             alt="FAQ Illustration"
-            className="rounded-[35px] shadow-lg"
+            className="rounded-[35px] shadow-lg w-full max-w-md lg:max-w-none"
           />
         </div>
       </div>
     </div>
   );
 }
+

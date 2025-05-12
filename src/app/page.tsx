@@ -2,6 +2,7 @@
 import FAQWithImage from "./components/Faq";
 import FeaturesSection from "./components/FeatureSection";
 import Herosection from "./components/Herosection";
+import HistoryTime from "./components/HistoryTime";
 import Navbar from "./components/NavbarSection";
 
 export default function Home() {
@@ -37,7 +38,9 @@ export default function Home() {
           <Navbar />
           <Herosection />
           <FeaturesSection />
-          <FAQWithImage />
+          <div className="max-w-7xl mx-auto mt-12"> {/* Añadimos un margen superior para separarlo */}
+                  <HistoryTime /> {/* Renderizamos el componente FAQWithImage aquí */}
+          </div>
         </div>
       </div>
     </>
