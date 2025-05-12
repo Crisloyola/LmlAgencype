@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
+import { Swiper as SwiperType } from 'swiper';
 
 export default function NuestraEsenciaConCarrusel() {
-  const swiperRef = useRef<import('swiper').SwiperType | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   // Definimos las categorías con varias imágenes
   const slidesData = [
@@ -43,7 +44,7 @@ export default function NuestraEsenciaConCarrusel() {
   };
 
   return (
-    <section className="bg-[#131313] text-white rounded-3xl flex flex-col space-y-12 px-6 mt-[30px]">
+    <section className="bg-[#131313] text-white rounded-3xl flex flex-col space-y-12 px-6 mt-[10px]">
       <h1 className="text-[55px] font-extrabold text-center border-r-[#33363F]">Nuestro Trabajo nos identifica</h1>
 
       <div className="flex space-x-4 border-b border-t border-[#33363F] mb-4 overflow-x-auto -mt-6">
