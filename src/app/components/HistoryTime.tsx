@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const timelineData = [
@@ -72,7 +71,7 @@ export default function TimelineCarousel() {
               <div className="flex items-center px-4 space-x-4  rounded-2xl max-w-xl">
                 {/* Imagen */}
                 <div className="w-43 h-38 shrink-0 overflow-hidden rounded-[20px] border border-[#33363F]">
-                  <Image
+                  <img
                     src={item.image}
                     alt={item.year}
                     width={300}
