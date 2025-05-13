@@ -39,6 +39,13 @@ export default function NuestraEsenciaConCarrusel() {
     swiperRef.current?.slideToLoop(indexInAllSlides, 1000);
   };
 
+  const handleSlideChange = (swiper: SwiperType) => {
+    const currentSlide = allSlides[swiper.realIndex];
+    if (currentSlide) {
+      setActiveCategory(currentSlide.categoryId);
+    }
+  };
+
   return (
     <section className="text-white rounded-3xl flex flex-col gap-10 px-4 md:px-6 lg:px-10 mt-6" id='nuestro'>
       <h1 className="text-[28px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
@@ -71,8 +78,10 @@ export default function NuestraEsenciaConCarrusel() {
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: false,
           }}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={handleSlideChange}
           speed={1000}
           touchStartPreventDefault={false}
           className="w-full h-full rounded-3xl overflow-hidden"
@@ -82,7 +91,6 @@ export default function NuestraEsenciaConCarrusel() {
               <img
                 src={slide.img}
                 alt={`Slide ${index}`}
-  
                 className="object-cover w-full h-full"
               />
             </SwiperSlide>
