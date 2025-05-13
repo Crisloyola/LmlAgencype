@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import Image from 'next/image';
 import 'swiper/css';
 import { Swiper as SwiperType } from 'swiper';
 
@@ -22,7 +21,7 @@ export default function NuestraEsenciaConCarrusel() {
     {
       id: 2,
       title: 'STREAMERS',
-      images: ['/trabajo3.png', '/trabajo3_2.png', '/trabajo3_3.png'],
+      images: ['/parado/pa1.jpg'],
     },
   ];
 
@@ -79,10 +78,10 @@ export default function NuestraEsenciaConCarrusel() {
         >
           {allSlides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <Image
+              <img
                 src={slide.img}
                 alt={`Slide ${index}`}
-                fill
+  
                 className="object-cover w-full h-full"
               />
             </SwiperSlide>

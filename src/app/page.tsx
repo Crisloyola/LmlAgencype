@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import FAQWithImage from "./components/Faq";
 import FeaturesSection from "./components/FeatureSection";
 import Footer from "./components/Footer";
 import Herosection from "./components/Herosection";
