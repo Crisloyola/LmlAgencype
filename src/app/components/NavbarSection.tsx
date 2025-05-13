@@ -11,9 +11,16 @@ export default function NavbarSection() {
   return (
     <header className="text-white relative z-50">
       <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo mejorado */}
         <div className="flex items-center">
-          <Image src="/Logo.svg" alt="Logo" width={150} height={81} />
+          <Image
+            src="/Logo.svg"
+            alt="Logo"
+            width={150}
+            height={81}
+            priority
+            unoptimized
+          />
         </div>
 
         {/* Botón de menú para móviles */}
