@@ -1,5 +1,3 @@
-// components/NuestraEsenciaConCarrusel.jsx
-
 import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -10,17 +8,16 @@ import { Swiper as SwiperType } from 'swiper';
 export default function NuestraEsenciaConCarrusel() {
   const swiperRef = useRef<SwiperType | null>(null);
 
-  // Definimos las categorías con varias imágenes
   const slidesData = [
     {
       id: 0,
       title: 'LMLAGENCY',
-      images: ['/lmlagency1.png', '/agency/agency2.jpg', '/agency/agency3.jpg','/agency/agency4.jpg','/agency/agency5.jpg'],
+      images: ['/lmlagency1.png', '/agency/agency2.jpg', '/agency/agency3.jpg', '/agency/agency4.jpg', '/agency/agency5.jpg'],
     },
     {
       id: 1,
-      title: 'PARADO SIN POLO',
-      images: ['/parado/pa.jpg', '/parado/pa1.jpg', '/parado/pa2.jpg','/parado/pa3.jpg','/parado/pa4.jpg'],
+      title: 'BAR DEL LOBO',
+      images: ['/parado/pa.jpg', '/parado/pa1.jpg', '/parado/pa2.jpg', '/parado/pa3.jpg', '/parado/pa4.jpg'],
     },
     {
       id: 2,
@@ -44,15 +41,20 @@ export default function NuestraEsenciaConCarrusel() {
   };
 
   return (
-    <section className="bg-[#131313] text-white rounded-3xl flex flex-col space-y-12 px-6 mt-[10px]">
-      <h1 className="text-[55px] font-extrabold text-center border-r-[#33363F]">Nuestro Trabajo nos identifica</h1>
+    <section className="text-white rounded-3xl flex flex-col gap-10 px-4 md:px-6 lg:px-10 mt-6">
+      <h1 className="text-[28px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
+        Nuestro Trabajo nos identifica
+      </h1>
 
-      <div className="flex space-x-4 border-b border-t border-[#33363F] mb-4 overflow-x-auto -mt-6">
+      {/* Tabs */}
+      <div className="flex overflow-x-auto border-y border-[#33363F] mb-4 -mt-4 scrollbar-hide">
         {slidesData.map((category) => (
           <button
             key={category.id}
-            className={`text-sm md:text-base px-4 py-5 rounded-t-xl font-bold whitespace-nowrap  ${
-              activeCategory === category.id ? ' bg-[#B2FA03] text-[#131313]' : 'text-white'
+            className={`text-sm md:text-base px-4 py-4 font-bold whitespace-nowrap transition-colors duration-300 ${
+              activeCategory === category.id
+                ? 'bg-[#B2FA03] text-[#131313]'
+                : 'text-white'
             }`}
             onClick={() => handleTabClick(category.id)}
           >
@@ -61,7 +63,8 @@ export default function NuestraEsenciaConCarrusel() {
         ))}
       </div>
 
-      <div className="relative w-full h-[400px] md:h-[600px]">
+      {/* Swiper */}
+      <div className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[600px]">
         <Swiper
           modules={[Autoplay]}
           slidesPerView={1}
@@ -80,17 +83,15 @@ export default function NuestraEsenciaConCarrusel() {
                 src={slide.img}
                 alt={`Slide ${index}`}
                 fill
-                className="object-cover w-full h-full rounded-3xl"
+                className="object-cover w-full h-full"
               />
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* Degradado lateral izquierdo */}
-        <div className="pointer-events-none absolute top-0 left-0 h-full w-1/5 bg-gradient-to-r from-[#131313] to-transparent z-10 rounded-3xl"></div>
-
-        {/* Degradado lateral derecho */}
-        <div className="pointer-events-none absolute top-0 right-0 h-full w-1/5 bg-gradient-to-l from-[#131313] to-transparent z-10 rounded-3xl"></div>
+        {/* Gradientes laterales (solo visibles en pantallas grandes) */}
+        <div className="hidden sm:block pointer-events-none absolute top-0 left-0 h-full w-1/5 bg-gradient-to-r from-[#131313] to-transparent z-10 rounded-3xl"></div>
+        <div className="hidden sm:block pointer-events-none absolute top-0 right-0 h-full w-1/5 bg-gradient-to-l from-[#131313] to-transparent z-10 rounded-3xl"></div>
       </div>
     </section>
   );

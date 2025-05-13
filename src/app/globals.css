@@ -54,6 +54,10 @@ span{
   font-family: kantumbold;
 }
 
+.link > span{
+  font-family: kantumregular;
+
+}
 .parrafo{
   font-family: kantummedium;
   font-size: 14px;
@@ -72,3 +76,5 @@ span{
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+

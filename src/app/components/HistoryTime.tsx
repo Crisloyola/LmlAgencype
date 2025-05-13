@@ -1,23 +1,32 @@
-// components/TimelineCarousel.tsx
 "use client";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const timelineData = [
   {
+    year: "2015",
+    image: "/histori/2015.jpg",
+    text: "Lobockz Regresa a los Esports",
+  },
+  {
     year: "2019",
-    image: "/parado/pa.jpg",
-    text: "Luis Guerrero empieza a trabajar en Live Media.",
+    image: "/histori/gaminA.png",
+    text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR.",
   },
   {
     year: "2021",
-    image: "/images/2021.png",
-    text: "Luis Guerrero se independiza y crea SSL Entertainment.",
+    image: "/histori/ssl.png",
+    text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización.",
   },
-  {
-    year: "2022",
-    image: "/images/2022.png",
-    text: "Luis Guerrero sigue produciendo torneos pero de manera independiente.",
+   {
+    year: "2023",
+    image: "/histori/lml.jpg",
+    text: "Lobockz crea LATAM MASTERS LEAGUE",
+  },
+   {
+    year: "2024",
+    image: "/histori/lmlL.png",
+    text: "Luis Guerrero lanza LML Agency",
   },
 ];
 
@@ -34,12 +43,7 @@ export default function TimelineCarousel() {
     const scroll = () => {
       if (!container) return;
       container.scrollLeft += scrollStep;
-
-      // Cuando ha scrolleado la mitad (una copia completa), reinicia sin transición
-      if (
-        container.scrollLeft >=
-        container.scrollWidth / 2
-      ) {
+      if (container.scrollLeft >= container.scrollWidth / 2) {
         container.scrollLeft = 0;
       }
     };
@@ -49,39 +53,42 @@ export default function TimelineCarousel() {
   }, []);
 
   return (
-    <div className="w-full bg-black text-white py-12 px-4 overflow-hidden">
+    <div className="w-full  text-white -mt-20 px-4 overflow-hidden">
       <div className="relative">
-        <div className="absolute bottom-4 left-0 w-full h-0.5 bg-gray-600 z-0" />
 
         <div
           ref={scrollRef}
-          className="overflow-x-scroll scroll-smooth scrollbar-hide whitespace-nowrap"
+          className="overflow-x-scroll scroll-smooth scrollbar-hide "
         >
-          {/* Duplicamos el contenido para lograr loop infinito */}
-          <div className="flex space-x-20 min-w-max">
+          <div className="flex space-x-1 min-w-max">
             {[...timelineData, ...timelineData].map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center snap-start relative"
+                className="flex flex-col items-start relative"
               >
-                <h3 className="text-4xl font-bold mb-4">{item.year}</h3>
+                {/* Año */}
+                <h1 className="text-[55px]  ml-8 ">{item.year}</h1>
 
-                <div className="flex items-center bg-black px-4 py-2 space-x-6">
-                  <div className="w-40 h-40 rounded-xl overflow-hidden shadow-lg shrink-0">
-                    <Image
-                      src={item.image}
-                      alt={item.year}
-                      width={160}
-                      height={160}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <p className="max-w-xs text-sm font-semibold text-left">
+              <div className="flex items-center px-4 space-x-4  rounded-2xl max-w-xl">
+                {/* Imagen */}
+                <div className="w-43 h-38 shrink-0 overflow-hidden rounded-[20px] border border-[#33363F]">
+                  <Image
+                    src={item.image}
+                    alt={item.year}
+                    width={300}
+                    height={128}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+
+                {/* Texto */}
+                <div className="flex-1 text-white break-words w-[200px]">
+
+                  <p className="text-lg font-bold uppercase leading-tight">
                     {item.text}
                   </p>
                 </div>
-
-                <div className="w-3 h-3 bg-white rounded-full border-2 border-black mt-6 z-10" />
+              </div>
               </div>
             ))}
           </div>

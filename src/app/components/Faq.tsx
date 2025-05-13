@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQ {
   question: string;
@@ -19,7 +20,8 @@ export default function FAQWithImage() {
     },
     {
       question: "¿En qué país operan?",
-      answer: "Nuestro centro de operaciones está ubicado en Perú, pero podemos cubrir cualquier evento alrededor del mundo previa coordinación y separación de la(s) fecha(s).",
+      answer:
+        "Nuestro centro de operaciones está ubicado en Perú, pero podemos cubrir cualquier evento alrededor del mundo previa coordinación y separación de la(s) fecha(s).",
     },
     {
       question: "¿Cómo puedo contratar sus servicios?",
@@ -45,7 +47,11 @@ export default function FAQWithImage() {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="text-white py-5 px-4 sm:px-6 lg:px-2 relative"
     >
       <img
@@ -56,19 +62,18 @@ export default function FAQWithImage() {
       <div className="flex flex-col lg:flex-row gap-2 rounded-[32] px-4 py-5 border border-[#33363F] relative z-10 bg-black/50 backdrop-blur-md">
         {/* Columna de Preguntas */}
         <div className="lg:w-1/2 px-6 py-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold mb-4">
             Preguntas Frecuentes
           </h1>
           <p className="mb-8 text-white text-sm sm:text-base">
-            Encuentra respuestas rápidas a las dudas más comunes sobre nuestros
-            servicios, eventos y procesos de trabajo.
+            Encuentra respuestas rápidas a las dudas más comunes sobre nuestros servicios, eventos y procesos de trabajo.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
             {faqs.map((faq, index) => (
               <div
                 key={index}
                 className={`p-4 border rounded-lg ${
-                  openIndex === index ? "border-blue-500" : "border-[#33363F]"
+                  openIndex === index ? "border-[#B2FA03]" : "border-[#33363F]"
                 }`}
               >
                 <button
@@ -78,15 +83,22 @@ export default function FAQWithImage() {
                   <span className="text-sm sm:text-base titulo">
                     {index + 1}. {faq.question}
                   </span>
-                  <span className="text-white">
-                    {openIndex === index ? "▲" : "▼"}
-                  </span>
+                  <span className="text-white">{openIndex === index ? "▲" : "▼"}</span>
                 </button>
-                {openIndex === index && (
-                  <p className="mt-4 text-gray-300 text-xs sm:text-sm parrafo">
-                    {faq.answer}
-                  </p>
-                )}
+                <AnimatePresence initial={false}>
+                  {openIndex === index && (
+                    <motion.p
+                      key="answer"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="mt-4 text-gray-300 text-xs sm:text-sm parrafo overflow-hidden"
+                    >
+                      {faq.answer}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
@@ -101,7 +113,8 @@ export default function FAQWithImage() {
           />
         </div>
       </div>
-    </div>
+
+      
+    </motion.div>
   );
 }
-
