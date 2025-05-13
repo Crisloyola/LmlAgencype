@@ -64,7 +64,7 @@ export default function NuestraEsencia() {
           {/* imgn */}
           <div className="w-full md:w-1/2  relative flex flex-col items-center md:items-end">
             <div className="h-20 absolute -top-6 left-1/2 -translate-x-1/2 lg:left-auto 
-                lg:translate-x-0 lg:right-0 lg:w-[380px] w-[400px] bg-[#B2FA03] text-black px-5 py-3 rounded-2xl shadow-lg flex items-center gap-3 z-20">
+                lg:translate-x-0 lg:right-0 lg:w-[380px] w-[350px] bg-[#B2FA03] text-black px-5 py-3 rounded-2xl shadow-lg flex items-center gap-3 z-20">
               <span className="text-[30px] lg:text-[35px] font-extrabold leading-none">100%</span>
               <span className="text-[14px] lg:text-[16px] font-medium leading-snug">
                 Comprometidos con nuestros<br />clientes.
