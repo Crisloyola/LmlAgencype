@@ -58,7 +58,7 @@ export default function FAQWithImage() {
         className="absolute top-[-200px] inset-x-0 h-auto object-cover w-full z-0"
         alt="Fondo FAQ"
       />
-      <div className="flex flex-col lg:flex-row gap-2 rounded-[32] px-4 py-5 border border-[#33363F] relative z-10 bg-black/50 backdrop-blur-md">
+      <div className="flex flex-col lg:flex-row gap-2 rounded-[32px] px-4 py-5 border border-[#33363F] relative z-10 bg-black/50 backdrop-blur-md">
         {/* Columna de Preguntas */}
         <div className="lg:w-1/2 px-6 py-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold mb-4">

@@ -21,7 +21,7 @@ export default function NuestraEsenciaConCarrusel() {
     {
       id: 2,
       title: 'STREAMERS',
-      images: ['/parado/pa1.jpg'],
+      images: ['/stream/01.jpg', '/stream/02.jpg', '/stream/03.jpg', '/stream/fabio01.jpg', '/stream/fabio02.jpg', '/stream/fabio03.jpg'],
     },
   ];
 
@@ -40,7 +40,7 @@ export default function NuestraEsenciaConCarrusel() {
   };
 
   return (
-    <section className="text-white rounded-3xl flex flex-col gap-10 px-4 md:px-6 lg:px-10 mt-6">
+    <section className="text-white rounded-3xl flex flex-col gap-10 px-4 md:px-6 lg:px-10 mt-6" id='nuestro'>
       <h1 className="text-[28px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
         Nuestro Trabajo nos identifica
       </h1>

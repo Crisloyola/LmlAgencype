@@ -28,7 +28,9 @@
 body {
   @apply bg-[#131313];
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
 header{
   font-family: kantumbold;
