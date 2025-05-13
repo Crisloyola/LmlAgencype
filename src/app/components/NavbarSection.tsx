@@ -39,7 +39,7 @@ export default function NavbarSection() {
             <Link href="#nuestro" className="hover:text-[#B2FA03] transition">Nuestro Trabajo</Link>
           </li>
           <li>
-            <Link href="#" className="text-[#B2FA03] border border-neon px-4 py-1 rounded-full transition">Nosotros</Link>
+            <Link href="https://wa.link/7cmlp3" target="_blank" className="text-[#B2FA03] border border-neon px-4 py-1 rounded-full transition">Contactanos</Link>
           </li>
         </ul>
       </nav>
@@ -54,9 +54,9 @@ export default function NavbarSection() {
         )}
       >
         <Link href="#" onClick={() => setIsOpen(false)} className="hover:text-[#B2FA03] transition">Inicio</Link>
-        <Link href="#" onClick={() => setIsOpen(false)} className="hover:text-[#B2FA03] transition">¿Quiénes Somos?</Link>
+        <Link href="#somos" onClick={() => setIsOpen(false)} className="hover:text-[#B2FA03] transition">¿Quiénes Somos?</Link>
         <Link href="#nuestro" onClick={() => setIsOpen(false)} className="hover:text-[#B2FA03] transition">Nuestro Trabajo</Link>
-        <Link href="#" onClick={() => setIsOpen(false)} className="text-[#B2FA03] border border-neon px-6 py-2 rounded-full transition">Nosotros</Link>
+        <Link href="https://wa.link/7cmlp3"target="_blank" onClick={() => setIsOpen(false)} className="text-[#B2FA03] border border-neon px-6 py-2 rounded-full transition">Contactanos</Link>
       </div>
     </header>
   );
