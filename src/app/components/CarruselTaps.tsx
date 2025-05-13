@@ -74,6 +74,7 @@ export default function NuestraEsenciaConCarrusel() {
           }}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           speed={1000}
+          touchStartPreventDefault={false}
           className="w-full h-full rounded-3xl overflow-hidden"
         >
           {allSlides.map((slide, index) => (
