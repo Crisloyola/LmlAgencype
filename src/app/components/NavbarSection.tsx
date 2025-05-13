@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
@@ -13,13 +12,11 @@ export default function NavbarSection() {
       <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo mejorado */}
         <div className="flex items-center">
-          <Image
+          <img
             src="/Logo.svg"
             alt="Logo"
             width={150}
             height={81}
-            priority
-            unoptimized
           />
         </div>
 
