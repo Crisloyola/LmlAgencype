@@ -21,7 +21,7 @@ export default function NuestraEsenciaConCarrusel() {
     {
       id: 2,
       title: 'STREAMERS',
-      images: ['/stream/01.jpg', '/stream/2.webp', '/stream/03.webp', '/stream/fabio01.webp', '/stream/fabio02.webp', '/stream/fabio03.webp', '/stream/fabio04.webp'],
+      images: ['/stream/c01.webp','/stream/c02.webp','/stream/c03.webp','/stream/01.webp', '/stream/2.webp', '/stream/03.webp', '/stream/fabio01.webp', '/stream/fabio02.webp', '/stream/fabio03.webp', '/stream/fabio04.webp'],
     },
   ];
 
