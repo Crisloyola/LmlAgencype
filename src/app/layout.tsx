@@ -13,9 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LMLAGENCYPE",
-  description: "En LML Agency, creamos momentos memorables. Somos una productora peruana con un equipo apasionado y con años de experiencia",
+  title: "LMLAGENCYPE - 🎥 ",
+  description:
+    "En LML Agency, creamos momentos memorables. Somos una productora peruana con un equipo apasionado y con años de experiencia",
+  icons: {
+    icon: [
+      { url: "/Logo.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/Logo.svg",
+    apple: "/apple-touch-icon.png",
+  },
 };
+
 
 
 export default function RootLayout({
