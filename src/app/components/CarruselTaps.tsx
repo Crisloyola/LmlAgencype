@@ -11,12 +11,12 @@ export default function NuestraEsenciaConCarrusel() {
     {
       id: 0,
       title: 'LMLAGENCY',
-      images: ['/agency/agency1.webp', '/agency/agency2.webp',, '/agency/agency3.webp',, '/agency/agency4.webp',, '/agency/agency5.webp'],
+      images: ['/agency/agency1.webp', '/agency/agency2.webp', '/agency/agency3.webp', '/agency/agency4.webp', '/agency/agency5.webp'],
     },
     {
       id: 1,
       title: 'BAR DEL LOBO',
-      images: ['/parado/pa1.webp', '/parado/pa2.webp', '/parado/pa3.webp', '/parado/pa4.webp', '/parado/pa5.webp','/parado/pa6.webp','/parado/pa7.webp'],
+      images: ['/parado/pa1.webp', '/parado/pa2.webp', '/parado/pa3.webp', '/parado/pa4.webp', '/parado/pa5.webp', '/parado/pa6.webp', '/parado/pa7.webp'],
     },
     {
       id: 2,
@@ -46,8 +46,14 @@ export default function NuestraEsenciaConCarrusel() {
     }
   };
 
+  const handleMouseUp = () => {
+    if (swiperRef.current) {
+      swiperRef.current.allowTouchMove = true; // Asegura que el Swiper permita el movimiento táctil
+    }
+  };
+
   return (
-    <section className="text-white rounded-3xl flex flex-col gap-10 px-4 md:px-6 lg:px-10 mt-6" id='nuestro'>
+    <section className="text-white rounded-3xl flex flex-col gap-10 px-4 md:px-6 lg:px-10 mt-6" id="nuestro">
       <h1 className="text-[28px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
         Nuestro Trabajo nos identifica
       </h1>
@@ -70,20 +76,24 @@ export default function NuestraEsenciaConCarrusel() {
       </div>
 
       {/* Swiper */}
-      <div className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[600px]">
+      <div
+        className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[600px]"
+        onMouseUp={handleMouseUp} // Asegura que el mouseup detenga cualquier interacción
+        onMouseLeave={handleMouseUp} // Detiene la interacción si el mouse sale del área
+      >
         <Swiper
           modules={[Autoplay]}
           slidesPerView={1}
           loop={true}
           autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
+            delay: 2000,
+            disableOnInteraction: false, // Permite que el autoplay continúe después de la interacción
             pauseOnMouseEnter: false,
           }}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={handleSlideChange}
-          speed={1000}
-          touchStartPreventDefault={false}
+          speed={1000} // Velocidad de transición
+          touchStartPreventDefault={false} // Permite interacciones táctiles fluidas
           className="w-full h-full rounded-3xl overflow-hidden"
         >
           {allSlides.map((slide, index) => (
