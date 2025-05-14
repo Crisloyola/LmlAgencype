@@ -3,9 +3,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
+import ContactForm from "./ContactForm"; // Asegúrate de importar correctamente
 
 export default function NavbarSection() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
 
   return (
     <header className="text-white relative z-50">
@@ -39,6 +41,14 @@ export default function NavbarSection() {
             <Link href="#nuestro" className="hover:text-[#B2FA03] transition">Nuestro Trabajo</Link>
           </li>
           <li>
+            <button
+              onClick={() => setShowContactForm(true)}
+              className="hover:text-[#B2FA03] transition"
+            >
+              Más Información
+            </button>
+          </li>
+          <li>
             <Link href="https://wa.link/7cmlp3" target="_blank" className="text-[#B2FA03] border border-neon px-4 py-1 rounded-full transition">Contactanos</Link>
           </li>
         </ul>
@@ -56,8 +66,20 @@ export default function NavbarSection() {
         <Link href="#" onClick={() => setIsOpen(false)} className="hover:text-[#B2FA03] transition">Inicio</Link>
         <Link href="#somos" onClick={() => setIsOpen(false)} className="hover:text-[#B2FA03] transition">¿Quiénes Somos?</Link>
         <Link href="#nuestro" onClick={() => setIsOpen(false)} className="hover:text-[#B2FA03] transition">Nuestro Trabajo</Link>
-        <Link href="https://wa.link/7cmlp3"target="_blank" onClick={() => setIsOpen(false)} className="text-[#B2FA03] border border-neon px-6 py-2 rounded-full transition">Contactanos</Link>
+        <button
+          onClick={() => {
+            setIsOpen(false);
+            setShowContactForm(true);
+          }}
+          className="text-[#B2FA03] border border-neon px-6 py-2 rounded-full transition"
+        >
+          Más Información
+        </button>
+        <Link href="https://wa.link/7cmlp3" target="_blank" onClick={() => setIsOpen(false)} className="text-[#B2FA03] border border-neon px-6 py-2 rounded-full transition">Contactanos</Link>
       </div>
+
+      {/* Modal del formulario */}
+      <ContactForm isOpen={showContactForm} onClose={() => setShowContactForm(false)} />
     </header>
   );
 }
