@@ -7,57 +7,6 @@ const timelineData = [
   { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
   { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
   { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
-  { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
-  { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
-  
 ];
 
 export default function TimelineCarousel() {
@@ -65,6 +14,7 @@ export default function TimelineCarousel() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -74,16 +24,16 @@ export default function TimelineCarousel() {
     const delay = 20; // Tiempo entre desplazamientos
 
     const scroll = () => {
-      if (!container || isDragging) return; // Detén el scroll automático si el usuario está interactuando
+      if (!container || isDragging || !isAutoScrolling) return; // Detén el scroll automático si el usuario está interactuando
       container.scrollLeft += scrollStep;
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        container.scrollLeft = 0;
+      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+        container.scrollLeft = 0; // Reinicia el scroll al inicio
       }
     };
 
     const interval = setInterval(scroll, delay);
     return () => clearInterval(interval); // Limpia el intervalo al desmontar
-  }, [isDragging]);
+  }, [isDragging, isAutoScrolling]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevenir selección de texto
@@ -91,6 +41,7 @@ export default function TimelineCarousel() {
     if (!container) return;
 
     setIsDragging(true);
+    setIsAutoScrolling(false); // Detén el scroll automático mientras se interactúa
     setStartX(e.pageX - container.offsetLeft);
     setScrollLeft(container.scrollLeft);
   };
@@ -103,38 +54,39 @@ export default function TimelineCarousel() {
     if (!container) return;
 
     const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 2; // Ajusta la sensibilidad del desplazamiento
-    container.scrollLeft = scrollLeft - walk;
+    const walk = x - startX; // Calcula la distancia movida
+    container.scrollLeft = scrollLeft - walk; // Actualiza el desplazamiento
   };
 
   const handleMouseUpOrLeave = () => {
     setIsDragging(false);
+    setIsAutoScrolling(true); // Reanuda el scroll automático después de la interacción
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
-    e.preventDefault(); // Prevenir comportamiento predeterminado
     const container = scrollRef.current;
     if (!container) return;
 
     setIsDragging(true);
+    setIsAutoScrolling(false); // Detén el scroll automático mientras se interactúa
     setStartX(e.touches[0].pageX - container.offsetLeft);
     setScrollLeft(container.scrollLeft);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
-    e.preventDefault(); // Prevenir comportamiento predeterminado
 
     const container = scrollRef.current;
     if (!container) return;
 
     const x = e.touches[0].pageX - container.offsetLeft;
-    const walk = (x - startX) * 2; // Ajusta la sensibilidad del desplazamiento
-    container.scrollLeft = scrollLeft - walk;
+    const walk = x - startX; // Calcula la distancia movida
+    container.scrollLeft = scrollLeft - walk; // Actualiza el desplazamiento
   };
 
   const handleTouchEnd = () => {
     setIsDragging(false);
+    setIsAutoScrolling(true); // Reanuda el scroll automático después de la interacción
   };
 
   return (
@@ -146,7 +98,7 @@ export default function TimelineCarousel() {
       <div className="relative">
         <div
           ref={scrollRef}
-          className="overflow-x-scroll scroll-smooth scrollbar-hide"
+          className="overflow-x-scroll scroll-smooth scrollbar-hide touch-pan-x"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUpOrLeave}
@@ -156,7 +108,7 @@ export default function TimelineCarousel() {
           onTouchEnd={handleTouchEnd}
         >
           <div className="flex space-x-1 min-w-max">
-            {[...timelineData, ...timelineData].map((item, index) => (
+            {timelineData.map((item, index) => (
               <div key={index} className="flex flex-col items-start relative">
                 <h1 className="text-[55px] ml-8">{item.year}</h1>
                 <div className="flex items-center px-4 space-x-4 rounded-2xl max-w-xl">
