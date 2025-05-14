@@ -1,34 +1,31 @@
-import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+// src/app/api/contact/route.ts
+import { Resend } from "resend";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function POST(req: Request) {
   const { name, email, message } = await req.json();
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: true,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
-
+  console.log("RESEND_API_KEY:", process.env.RESEND_API_KEY?.slice(0, 5)); // solo primeros 5 caracteres
+  console.log("EMAIL_TO:", process.env.EMAIL_TO);
   try {
-    await transporter.sendMail({
-      from: `"LML Agency" <${process.env.SMTP_USER}>`,
-      to: process.env.EMAIL_TO,
-      subject: "Nuevo mensaje del formulario de contacto",
+    await resend.emails.send({
+      from: 'LML Agency <contacto@lmlagencype.com>',
+      to: process.env.EMAIL_TO || '',
+      subject: `Nuevo mensaje de ${name}`,
       html: `
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mensaje:</strong> ${message}</p>
+        <p><strong>Mensaje:</strong><br/>${message}</p>
       `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error al enviar el correo:", error);
+    console.error("Error al enviar con Resend:", error);
     return NextResponse.json({ success: false }, { status: 500 });
   }
+
+  
 }
+// This code is a Next.js API route that handles sending emails using the Resend service.
