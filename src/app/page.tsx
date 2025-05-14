@@ -65,12 +65,9 @@ export default function Home() {
           <div className="max-w-7xl mx-auto mt-12">
             <HistoryTime />
           </div>
-
           <div className="max-w-7xl mx-auto mt-12">
             <Footer />
           </div>
-
-
         </div>
       </div>
     </>
