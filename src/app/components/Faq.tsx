@@ -106,7 +106,7 @@ export default function FAQWithImage() {
         {/* Columna de Imagen */}
         <div className="lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
           <img
-            src="/agency/agency4.jpg"
+            src="/agency/agency6.webp"
             alt="FAQ Illustration"
             className="rounded-[35px] shadow-lg w-full max-w-md lg:max-w-none"
           />

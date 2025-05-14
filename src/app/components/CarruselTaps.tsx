@@ -11,17 +11,17 @@ export default function NuestraEsenciaConCarrusel() {
     {
       id: 0,
       title: 'LMLAGENCY',
-      images: ['/lmlagency1.png', '/agency/agency2.jpg', '/agency/agency3.jpg', '/agency/agency4.jpg', '/agency/agency5.jpg'],
+      images: ['/agency/agency1.webp', '/agency/agency2.webp',, '/agency/agency3.webp',, '/agency/agency4.webp',, '/agency/agency5.webp'],
     },
     {
       id: 1,
       title: 'BAR DEL LOBO',
-      images: ['/parado/pa.jpg', '/parado/pa1.jpg', '/parado/pa2.jpg', '/parado/pa3.jpg', '/parado/pa4.jpg'],
+      images: ['/parado/pa1.webp', '/parado/pa2.webp', '/parado/pa3.webp', '/parado/pa4.webp', '/parado/pa5.webp','/parado/pa6.webp','/parado/pa7.webp'],
     },
     {
       id: 2,
       title: 'STREAMERS',
-      images: ['/stream/01.jpg', '/stream/02.jpg', '/stream/03.jpg', '/stream/fabio01.jpg', '/stream/fabio02.jpg', '/stream/fabio03.jpg'],
+      images: ['/stream/01.jpg', '/stream/2.webp', '/stream/03.webp', '/stream/fabio01.webp', '/stream/fabio02.webp', '/stream/fabio03.webp', '/stream/fabio04.webp'],
     },
   ];
 
