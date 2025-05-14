@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import Herosection from "./components/Herosection";
 import HistoryTime from "./components/HistoryTime";
 import Navbar from "./components/NavbarSection";
-import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   const [scrollWidth, setScrollWidth] = useState(0);
