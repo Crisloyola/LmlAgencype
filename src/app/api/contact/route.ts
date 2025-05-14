@@ -28,8 +28,8 @@ export async function POST(req: Request) {
 
   
 }
-
 export async function GET() {
   return NextResponse.json({ message: "API activa" });
 }
+
 // This code is a Next.js API route that handles sending emails using the Resend service.
