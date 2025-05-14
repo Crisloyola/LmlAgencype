@@ -6,7 +6,7 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
-export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+export default function ContactForm({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 
