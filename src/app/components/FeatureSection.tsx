@@ -68,7 +68,7 @@ export default function FeaturesSection() {
           </div>
         </div>
 
-        <div className="py-16 px-6 sm:px-8 lg:px-16">
+        <div className="py-16 px-2 lg:px-6 sm:px-8">
           <NuestraEsencia />
         </div>
       </motion.div>

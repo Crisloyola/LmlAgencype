@@ -103,9 +103,33 @@ export default function Herosection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            <motion.img src="/discord.svg" alt="Discord" className="w-[50px] sm:w-[100px] lg:w-[50px] hover:brightness-125 hover:scale-110" whileHover={{ y: -5, rotate: -3 }} />
-            <motion.img src="/twitch.svg" alt="Twitch" className="w-[50px] sm:w-[100px] lg:w-[50px] hover:brightness-125 hover:scale-110" whileHover={{ y: -5, rotate: 3 }} />
-            <motion.img src="/kick.svg" alt="Kick" className="w-[0px] sm:w-[100px] lg:w-[50px] hover:brightness-125 hover:scale-110" whileHover={{ y: -5, rotate: -3 }} />
+           <a href="mailto:contacto@lmlagencype.com" target="_blank" rel="noopener noreferrer">
+                <motion.img
+                  src="/discord.svg"
+                  alt="Discord"
+                  className="w-[50px] sm:w-[100px] lg:w-[50px] hover:brightness-125 hover:scale-110"
+                  whileHover={{ y: -5, rotate: -3 }}
+                />
+              </a>
+
+              <a href="https://www.instagram.com/lmlagencype/" target="_blank" rel="noopener noreferrer">
+                <motion.img
+                  src="/twitch.svg"
+                  alt="Twitch"
+                  className="w-[50px] sm:w-[100px] lg:w-[50px] hover:brightness-125 hover:scale-110"
+                  whileHover={{ y: -5, rotate: 3 }}
+                />
+              </a>
+
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <motion.img
+                  src="/kick.svg"
+                  alt="Kick"
+                  className="w-[0px] sm:w-[100px] lg:w-[50px] hover:brightness-125 hover:scale-110"
+                  whileHover={{ y: -5, rotate: -3 }}
+                />
+            </a>
+
           </motion.div>
         </motion.div>
 

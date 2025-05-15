@@ -48,13 +48,13 @@ export default function NuestraEsenciaConCarrusel() {
 
   const handleMouseUp = () => {
     if (swiperRef.current) {
-      swiperRef.current.allowTouchMove = true; // Asegura que el Swiper permita el movimiento táctil
+      swiperRef.current.allowTouchMove = true; 
     }
   };
 
   return (
-    <section className="text-white rounded-3xl flex flex-col gap-10 px-4 md:px-6 lg:px-10 mt-6" id="nuestro">
-      <h1 className="text-[28px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
+    <section className="text-white rounded-3xl flex flex-col gap-10  md:px-6 lg:px-10 px-1 mt-6" id="nuestro">
+      <h1 className="text-[35px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
         Nuestro Trabajo nos identifica
       </h1>
 

@@ -45,7 +45,7 @@ export default function NavbarSection() {
               onClick={() => setShowContactForm(true)}
               className="hover:text-[#B2FA03] transition"
             >
-              Más Información
+              Comunicate
             </button>
           </li>
           <li>
