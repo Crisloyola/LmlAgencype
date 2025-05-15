@@ -7,14 +7,14 @@ type TimelineItem =
 
 const originalTimelineData: TimelineItem[] = [
   { year: "2015", image: "/histori/2015.jpg", text: "Lobockz Regresa a los Esports" },
-  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR." },
-  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización." },
+  { year: "2019", image: "/histori/gaminA.png", text: "Lobockz Trabaja en LIVE MEDIA COMO ESPORTS DIRECTOR" },
+  { year: "2021", image: "/histori/ssl.png", text: "Lobockz crea SSL ENTERTAINMENT y empieza su independización" },
   { year: "2023", image: "/histori/lml.jpg", text: "Lobockz crea LATAM MASTERS LEAGUE" },
   { year: "2024", image: "/histori/lmlL.png", text: "Luis Guerrero lanza LML Agency" },
   {
     year: "2025",
     images: ["/stream/fabio01.webp", "/stream/c01.webp", "/stream/2.webp", "/stream/03.webp"],
-    text: "LML AGENCY HACIÉNDOSE UN ESPACIO EN EL MERCADO PERUANO.",
+    text: "LML AGENCY HACIÉNDOSE UN ESPACIO EN EL MERCADO PERUANO",
   },
 ];
 
