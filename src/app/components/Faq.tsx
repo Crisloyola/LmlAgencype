@@ -51,16 +51,16 @@ export default function FAQWithImage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="text-white py-5 px-4 sm:px-6 lg:px-2 relative"
+      className="text-white py-5 px-2  lg:px-2 relative"
     >
       <img
         src="/fontFaq.png"
         className="absolute top-[-200px] inset-x-0 h-auto object-cover w-full z-0"
         alt="Fondo FAQ"
       />
-      <div className="flex flex-col lg:flex-row gap-2 rounded-[32px] px-4 py-5 border border-[#33363F] relative z-10 bg-black/50 backdrop-blur-md">
+      <div className="flex flex-col lg:flex-row gap-2 rounded-[32px] px-2 lg:px-4 py-5 border border-[#33363F] relative z-10 bg-black/50 backdrop-blur-md">
         {/* Columna de Preguntas */}
-        <div className="lg:w-1/2 px-6 py-8">
+        <div className="lg:w-1/2 -px-1 lg:px-6 py-8 w-full">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-bold mb-4">
             Preguntas Frecuentes
           </h1>
@@ -104,7 +104,7 @@ export default function FAQWithImage() {
         </div>
 
         {/* Columna de Imagen */}
-        <div className="lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
+        <div className="lg:w-1/2 flex items-center justify-center mt-2  lg:mt-8">
           <img
             src="/agency/agency6.webp"
             alt="FAQ Illustration"

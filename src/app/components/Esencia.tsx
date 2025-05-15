@@ -28,10 +28,9 @@ export default function NuestraEsencia() {
         <div className="flex flex-col md:flex-row items-start md:items-center gap-12">
           {/* Texto */}
           <div className="w-full md:w-1/2 space-y-8">
-            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">Nuestra Esencia</h1>
+            <h1 className="text-4xl lg:text-3xl md:text-5xl font-extrabold leading-tight text-center">Nuestra Esencia</h1>
             <p className="text-sm md:text-base leading-relaxed">
-              Pasión por los Esports, compromiso con la calidad y conexión real con la comunidad gamer.
-              En LML Agency creamos experiencias únicas que marcan la diferencia en cada evento digital.
+             Pasión por los Esports y contenido Digital, compromiso con la calidad y conexión real entre el proyecto y la comunidad en general. En LML Agency creamos experiencias únicas que marcan la diferencia en cada evento digital. 
             </p>
 
             <div>
