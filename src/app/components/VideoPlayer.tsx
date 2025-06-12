@@ -1,24 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { Play, Pause } from 'lucide-react';
-
 export default function VideoPlayer() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPaused, setIsPaused] = useState(true);
-
-  const togglePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (video.paused) {
-      video.play();
-      setIsPaused(false);
-    } else {
-      video.pause();
-      setIsPaused(true);
-    }
-  };
+  const driveEmbedUrl = "https://www.dropbox.com/scl/fi/yoplez4lfyff72nt6pzbv/zeinVideo.mp4?rlkey=5b9md0qrw33n9caco40t9tlm1&st=rlcyb02z&dl=0&raw=1";
 
   return (
     <div className="w-[90%] md:w-[95%] max-w-8xl mx-auto mt-10">
@@ -27,22 +10,14 @@ export default function VideoPlayer() {
         Previa Oficial – Zeinternational
       </h1>
 
-      {/* Contenedor del video */}
-      <div className="relative rounded-xl overflow-hidden">
-        <video
-          ref={videoRef}
-          className="w-full h-auto object-cover"
-          src="/zeinternational/zeinVideo.mp4"
-          poster="/zeinternational/zein5.jpg"
+      {/* Contenedor del video (Google Drive embed) */}
+      <div className="relative rounded-xl overflow-hidden aspect-video">
+        <iframe
+          src={driveEmbedUrl}
+          className="w-full h-full"
+          allow="autoplay"
+          allowFullScreen
         />
-        <div className="absolute bottom-4 left-4 flex items-center space-x-2">
-          <button
-            onClick={togglePlay}
-            className="p-2 bg-black/60 rounded-full text-white hover:bg-black/80 transition"
-          >
-            {isPaused ? <Play size={24} /> : <Pause size={24} />}
-          </button>
-        </div>
       </div>
     </div>
   );
