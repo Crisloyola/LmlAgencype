@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";// Assuming this is a component that renders a video
 interface FAQ {
   question: string;
   answer: string;
@@ -53,6 +53,7 @@ export default function FAQWithImage() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="text-white py-5 px-2  lg:px-2 relative"
     >
+  
       <img
         src="/fontFaq.png"
         className="absolute top-[-200px] inset-x-0 h-auto object-cover w-full z-0"

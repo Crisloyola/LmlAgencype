@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LMLAGENCYPE - 🎥 ",
+  title: "LMLAGENCYPE ",
   description:
     "En LML Agency, creamos momentos memorables. Somos una productora peruana con un equipo apasionado y con años de experiencia",
   icons: {

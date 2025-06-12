@@ -5,6 +5,8 @@ import NuestraEsencia from "./Esencia";
 import FAQWithImage from "./Faq";
 import FeatureCard from "./FeatureCard";
 import { useInView } from "react-intersection-observer";
+import VideoPlayer from "./VideoPlayer";
+
 
 export default function FeaturesSection() {
   const controls = useAnimation();
@@ -66,6 +68,9 @@ export default function FeaturesSection() {
               className="transform hover:scale-105 transition duration-300 ease-in-out h-[300px] mt-[55px]"
             />
           </div>
+        </div>
+        <div>
+          <VideoPlayer />
         </div>
 
         <div className="py-16 px-2 lg:px-6 sm:px-8">

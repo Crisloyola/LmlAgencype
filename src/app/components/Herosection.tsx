@@ -17,7 +17,7 @@ export default function Herosection() {
 
   // Carrusel automático
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = ["smash.webp", "/stream/04.webp", "/stream/03.webp", "/stream/fabio01.webp", "/stream/fabio04.webp", "/stream/fabio03.webp"];
+  const images = ["/zeinternational/zein4.jpg","/zeinternational/zein7.jpg","/zeinternational/zein8.jpg", "/stream/04.webp", "/stream/03.webp", "/stream/fabio01.webp", "/stream/fabio04.webp", "/stream/fabio03.webp"];
 
   // Partículas generadas en cliente
   const [particles, setParticles] = useState<Particle[]>([]);

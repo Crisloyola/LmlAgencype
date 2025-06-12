@@ -23,6 +23,17 @@ export default function NuestraEsenciaConCarrusel() {
       title: 'STREAMERS',
       images: ['/stream/c01.webp','/stream/c02.webp','/stream/c03.webp','/stream/01.jpg', '/stream/2.webp', '/stream/03.webp', '/stream/fabio01.webp', '/stream/fabio02.webp', '/stream/fabio03.webp', '/stream/fabio04.webp'],
     },
+    {
+      id:3,
+      title: 'ZEINTERNATIONAL',
+      images: ['/zeinternational/zein1.jpg','/zeinternational/zein2.jpg','/zeinternational/zein3.jpg','/zeinternational/zein4.jpg','/zeinternational/zein5.jpg','/zeinternational/zein6.jpg']
+    },
+    {
+      id:4,
+      title: 'ODYSSEYCUP',
+      images: ['/odysse/ody1.jpg','/odysse/ody2.jpg','/odysse/ody3.jpg','/odysse/ody4.jpg','/odysse/ody5.jpg']
+    },
+
   ];
 
   const allSlides = slidesData.flatMap((category) =>
@@ -65,12 +76,23 @@ export default function NuestraEsenciaConCarrusel() {
             key={category.id}
             className={`text-sm md:text-base px-4 py-4 font-bold whitespace-nowrap transition-colors duration-300 ${
               activeCategory === category.id
-                ? 'bg-[#B2FA03] text-[#131313]'
+                ? category.id === 3
+                  ? 'bg-red-600 text-white'
+                  : 'bg-[#B2FA03] text-[#131313]'
                 : 'text-white'
-            }`}
+            } flex items-center gap-2`}
             onClick={() => handleTabClick(category.id)}
           >
             {category.title}
+            {category.id === 3 && (
+              <span
+              className={`ml-2 w-3 h-3 rounded-full animate-pulse inline-block ${
+                activeCategory === 3
+                  ? 'bg-white shadow-[0_0_10px_4px_rgba(255,255,255,0.8)]'
+                  : 'bg-red-500 shadow-[0_0_10px_4px_rgba(239,68,68,0.8)]'
+              }`}
+              />
+            )}
           </button>
         ))}
       </div>
