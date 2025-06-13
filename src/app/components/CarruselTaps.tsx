@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import { Swiper as SwiperType } from 'swiper';
+import VideoPlayer from './VideoPlayer';
 
 export default function NuestraEsenciaConCarrusel() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -26,7 +27,7 @@ export default function NuestraEsenciaConCarrusel() {
     {
       id:3,
       title: 'ZEINTERNATIONAL',
-      images: ['/zeinternational/zein1.jpg','/zeinternational/zein2.jpg','/zeinternational/zein3.jpg','/zeinternational/zein4.jpg','/zeinternational/zein5.jpg','/zeinternational/zein6.jpg']
+      images: ['/zeinternational/zein1.webp','/zeinternational/zein2.webp','/zeinternational/zein3.webp','/zeinternational/zein4.webp','/zeinternational/zein5.webp','/zeinternational/zein6.webp']
     },
     {
       id:4,
@@ -65,6 +66,9 @@ export default function NuestraEsenciaConCarrusel() {
 
   return (
     <section className="text-white rounded-3xl flex flex-col gap-10  md:px-6 lg:px-10 px-1 mt-6" id="nuestro">
+      <div>
+           <VideoPlayer />
+      </div>
       <h1 className="text-[35px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
         Nuestro Trabajo nos identifica
       </h1>
@@ -133,6 +137,7 @@ export default function NuestraEsenciaConCarrusel() {
         <div className="hidden sm:block pointer-events-none absolute top-0 left-0 h-full w-1/5 bg-gradient-to-r from-[#131313] to-transparent z-10 rounded-3xl"></div>
         <div className="hidden sm:block pointer-events-none absolute top-0 right-0 h-full w-1/5 bg-gradient-to-l from-[#131313] to-transparent z-10 rounded-3xl"></div>
       </div>
+      
     </section>
   );
 }
