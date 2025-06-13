@@ -10,7 +10,7 @@ export default function VideoPlayer() {
     if (!video) return;
 
     const tryPlay = () => {
-      video.muted = true;
+      video.muted = false;
       video.playsInline = true;
 
       const playPromise = video.play();
@@ -41,7 +41,6 @@ export default function VideoPlayer() {
           className="w-full h-full object-cover"
           src="https://pub-e0711c9681594e0f8927abb9782f801f.r2.dev/zeinVideo.mp4"
           loop
-          muted
           playsInline
           controls
           poster="/zeinternational/zein9.webp"
