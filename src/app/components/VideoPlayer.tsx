@@ -1,33 +1,35 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function VideoPlayer() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const userAgent = typeof window !== 'undefined' ? navigator.userAgent : '';
+    const mobile = /iPhone|iPad|iPod|Android/i.test(userAgent);
+    setIsMobile(mobile);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !isMobile) return;
 
-    const tryPlay = () => {
-      video.muted = false;
-      video.playsInline = true;
+    video.muted = true;
+    video.playsInline = true;
 
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // El navegador lo bloqueó. Esperamos una interacción
-          const handleUserInteraction = () => {
-            video.play();
-            window.removeEventListener('click', handleUserInteraction);
-          };
-          window.addEventListener('click', handleUserInteraction);
-        });
-      }
-    };
-
-    tryPlay();
-  }, []);
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const handleUserInteraction = () => {
+          video.play();
+          window.removeEventListener('click', handleUserInteraction);
+        };
+        window.addEventListener('click', handleUserInteraction);
+      });
+    }
+  }, [isMobile]);
 
   return (
     <div className="max-w-7xl mx-auto mt-10">
@@ -40,9 +42,10 @@ export default function VideoPlayer() {
           ref={videoRef}
           className="w-full h-full object-cover"
           src="https://pub-e0711c9681594e0f8927abb9782f801f.r2.dev/zeinVideo.mp4"
-          loop
-          playsInline
           controls
+          loop
+          muted
+          playsInline
           poster="/zeinternational/zein9.webp"
           preload="metadata"
         />
