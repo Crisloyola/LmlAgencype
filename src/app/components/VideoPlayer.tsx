@@ -3,7 +3,7 @@
 export default function VideoPlayer() {
 
   return (
-    <div className=" max-w-7xl mx-auto mt-10">
+    <div className=" max-w-7xl md:max-w-6xl mx-auto mt-10">
       {/* Título */}
       <h1 className="text-3xl md:text-[55px] font-bold text-center mb-6 text-white">
         Previa Oficial – Zeinternational
