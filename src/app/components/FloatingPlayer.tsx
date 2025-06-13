@@ -5,27 +5,40 @@ import { Volume2, VolumeX, Pause, Play } from 'lucide-react';
 
 export default function FloatingAudioPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.muted = false;
+    const handleScroll = () => {
+      if (hasInteracted) return;
+
+      const audio = audioRef.current;
+      if (!audio) return;
+
       audio
         .play()
         .then(() => {
           setIsPlaying(true);
+          setHasInteracted(true);
+          window.removeEventListener('scroll', handleScroll); // ✅ Quita el listener tras la primera vez
         })
-        .catch(() => {
-          setIsPlaying(false); // Si el navegador bloquea el autoplay
+        .catch((err) => {
+          console.warn('Error al reproducir audio:', err);
         });
-    }
-  }, []);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasInteracted]);
 
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
+
     if (audio.paused) {
       audio.play();
       setIsPlaying(true);
@@ -38,6 +51,7 @@ export default function FloatingAudioPlayer() {
   const toggleMute = () => {
     const audio = audioRef.current;
     if (!audio) return;
+
     audio.muted = !audio.muted;
     setIsMuted(audio.muted);
   };
@@ -48,7 +62,6 @@ export default function FloatingAudioPlayer() {
         ref={audioRef}
         src="/zeinternational/beatzein.wav"
         loop
-        autoPlay
         preload="auto"
       />
       <div className="fixed bottom-6 right-6 bg-black/70 text-white p-3 rounded-xl shadow-lg flex items-center space-x-3 z-50 backdrop-blur">
