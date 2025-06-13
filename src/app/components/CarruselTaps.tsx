@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import { Swiper as SwiperType } from 'swiper';
-import VideoPlayer from './VideoPlayer';
 
 export default function NuestraEsenciaConCarrusel() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -65,10 +64,8 @@ export default function NuestraEsenciaConCarrusel() {
   };
 
   return (
+    
     <section className="text-white rounded-3xl flex flex-col gap-10  md:px-6 lg:px-10 px-1 mt-6" id="nuestro">
-      <div>
-           <VideoPlayer />
-      </div>
       <h1 className="text-[35px] md:text-[38px] lg:text-[48px] font-extrabold text-center leading-tight">
         Nuestro Trabajo nos identifica
       </h1>

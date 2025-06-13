@@ -177,8 +177,11 @@ export default function Herosection() {
               />
             ))}
           </div>
+          
         </motion.div>
       </div>
+      
     </section>
+    
   );
 }
