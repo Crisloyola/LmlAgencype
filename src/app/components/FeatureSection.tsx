@@ -5,7 +5,7 @@ import NuestraEsencia from "./Esencia";
 import FAQWithImage from "./Faq";
 import FeatureCard from "./FeatureCard";
 import { useInView } from "react-intersection-observer";
-import VideoPlayer from "./VideoPlayer";
+
 
 
 export default function FeaturesSection() {
@@ -37,9 +37,6 @@ export default function FeaturesSection() {
         }}
         className="max-w-7xl mx-auto bg-[#F7F7F7] rounded-[1px] lg:rounded-[32px] text-left"
       >
-        <div className="py-16 px-2 lg:px-6 sm:px-8">
-          <VideoPlayer />
-        </div>
         <div className="flex flex-col items-center justify-center py-8" id="somos">
           <h1 className="text-4xl md:text-[55px] font-bold text-center mb-6">
             Producción Creativa FEATURES

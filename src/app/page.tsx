@@ -6,6 +6,7 @@ import Herosection from "./components/Herosection";
 import HistoryTime from "./components/HistoryTime";
 import Navbar from "./components/NavbarSection";
 import FloatingAudioPlayer from "./components/FloatingPlayer";
+import VideoPlayer from "./components/VideoPlayer";
 
 export default function Home() {
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -61,6 +62,7 @@ export default function Home() {
         <div className="relative z-10">
           <Navbar />
           <Herosection />
+          <VideoPlayer />
           <FeaturesSection />
           <div className="max-w-7xl mx-auto mt-12">
             <HistoryTime />
