@@ -25,7 +25,7 @@ export default function NuestraEsenciaConCarrusel() {
     },
     {
       id:3,
-      title: 'ZEINTERNATIONAL',
+      title: 'LA PREVIA DEL ZEIN',
       images: ['/zeinternational/zein1.webp','/zeinternational/zein2.webp','/zeinternational/zein3.webp','/zeinternational/zein4.webp','/zeinternational/zein5.webp','/zeinternational/zein6.webp']
     },
     {

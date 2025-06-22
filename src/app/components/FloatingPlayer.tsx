@@ -61,7 +61,6 @@ export default function FloatingAudioPlayer() {
       <audio
         ref={audioRef}
         src="/zeinternational/beatzein.wav"
-        loop
         preload="auto"
       />
       <div className="fixed bottom-6 right-6 bg-black/70 text-white p-3 rounded-xl shadow-lg flex items-center space-x-3 z-50 backdrop-blur">
