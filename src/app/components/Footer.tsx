@@ -35,7 +35,7 @@ const Footer = () => {
                 <span>email:</span>
               </li>
               <li className="flex justify-center md:justify-start items-center">
-                <span>+ contacto@lmlagencype.com</span>
+                <span>+ lguerrero@lmlagencype.com</span>
               </li>
               <li className="flex justify-center md:justify-start items-center">
                 <span>+ info@lmlagencype.com</span>
