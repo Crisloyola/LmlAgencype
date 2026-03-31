@@ -7,11 +7,12 @@ import HistoryTime from "./components/HistoryTime";
 import Navbar from "./components/NavbarSection";
 import FloatingAudioPlayer from "./components/FloatingPlayer";
 import VideoPlayer from "./components/VideoPlayer";
+import EquipmentRental from "./components/EquipmentRental";
+import HeroBanner from "./components/HeroBanner";
 
 export default function Home() {
   const [scrollWidth, setScrollWidth] = useState(0);
 
-  // Manejamos el progreso de scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -19,17 +20,15 @@ export default function Home() {
       const scrolled = (scrollTop / docHeight) * 100;
       setScrollWidth(scrolled);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      {/* Barra de Progreso fija arriba */}
-      <div 
+      <HeroBanner />
+      {/* Barra de progreso */}
+      <div
         className="fixed top-0 left-0 h-2 bg-gradient-to-r from-[#B2FA03] to-[#B2FA03] z-50"
         style={{ width: `${scrollWidth}%` }}
       />
@@ -44,13 +43,11 @@ export default function Home() {
               alt="Central"
             />
           </div>
-
           <img
             src="/leftFont.png"
             className="absolute -top-10 left-4 sm:left-10 md:left-[100px] lg:left-[200px] w-[400px] sm:w-[250px] md:w-[400px] lg:w-[691.16px] h-auto object-contain"
             alt="Izquierda"
           />
-
           <img
             src="/rightFont.png"
             className="absolute -top-10 left-[50%] sm:left-[55%] md:left-[60%] lg:left-[65%] transform -translate-x-1/2 w-[400px] sm:w-[200px] md:w-[350px] lg:w-[519px] h-auto object-contain"
@@ -64,6 +61,7 @@ export default function Home() {
           <Herosection />
           <VideoPlayer />
           <FeaturesSection />
+
           <div className="max-w-7xl mx-auto mt-12">
             <HistoryTime />
           </div>
