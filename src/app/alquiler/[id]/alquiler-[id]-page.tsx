@@ -6,7 +6,7 @@
 // separate server component wrapper (see note at bottom of file).
 //
 import { useParams } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,7 +21,6 @@ import {
   Star,
 } from "lucide-react";
 import {
-  EQUIPMENT,
   CATEGORIES,
   getEquipmentBySlug,
   getLatestEquipment,
