@@ -7,7 +7,6 @@ import HistoryTime from "./components/HistoryTime";
 import Navbar from "./components/NavbarSection";
 import FloatingAudioPlayer from "./components/FloatingPlayer";
 import VideoPlayer from "./components/VideoPlayer";
-import EquipmentRental from "./components/EquipmentRental";
 import HeroBanner from "./components/HeroBanner";
 
 export default function Home() {
