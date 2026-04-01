@@ -65,7 +65,7 @@ export default function NavbarSection() {
             >
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-600 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12" />
               <CartIcon size={12} />
-              Alquiler
+              Alquiler de Equipos
             </Link>
 
             {/* Comunícate */}
