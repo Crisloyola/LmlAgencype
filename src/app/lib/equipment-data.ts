@@ -49,7 +49,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Shure SLXD4D Dual Channel Digital Wireless Receiver",
     brand: "Shure",
     category: "inalambrico",
-    images: ["/equipo/shure-slxd4d.webp"],
+    images: ["/equipo/shure-slxd4d.png"],
     tagline: "Receptor inalámbrico profesional de doble canal (Rack con antenas)",
     description:
       "Receptor inalámbrico digital profesional de doble canal diseñado para eventos, conciertos, conferencias y producciones en vivo. Permite operar hasta dos micrófonos inalámbricos simultáneamente con audio digital de alta calidad y gran estabilidad de señal.",
@@ -80,7 +80,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Shure SLXD24D Wireless Microphone System",
     brand: "Shure",
     category: "inalambrico",
-    images: ["/equipo/shure-slxd24d.webp"],
+    images: ["/equipo/shure-slxd24d.png"],
     tagline: "Sistema inalámbrico profesional para 1 o 2 micrófonos",
     description:
       "Sistema inalámbrico profesional diseñado para ofrecer libertad de movimiento en el escenario sin perder calidad de sonido. Permite transmitir audio de alta calidad con gran estabilidad y rango de operación. Disponible en configuración de 1 o 2 micrófonos simultáneos.",
@@ -112,7 +112,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Shure B58 Wireless Handheld Transmitter",
     brand: "Shure",
     category: "inalambrico",
-    images: ["/equipo/shure-b58.webp"],
+    images: ["/equipo/shure-b58.png"],
     tagline: "Transmisor inalámbrico de mano con cápsula Beta 58A",
     description:
       "Transmisor inalámbrico de mano equipado con la reconocida cápsula Beta 58A de Shure, diseñada para ofrecer excelente claridad vocal y alto rendimiento en presentaciones en vivo. Su patrón polar supercardioide permite aislar la voz principal y reducir el ruido ambiental y el feedback.",
@@ -144,7 +144,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Sennheiser e835",
     brand: "Sennheiser",
     category: "audio",
-    images: ["/equipo/sennheiser-e835.webp"],
+    images: ["/equipo/sennheiser-e835.png"],
     tagline: "Micrófono dinámico vocal profesional para escenario",
     description:
       "Micrófono dinámico diseñado para voz en presentaciones en vivo. Ofrece excelente claridad vocal y gran resistencia al ruido y retroalimentación (feedback), siendo uno de los modelos más usados en escenarios.",
@@ -174,7 +174,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Shure SM35-TQG",
     brand: "Shure",
     category: "audio",
-    images: ["/equipo/shure-sm35.webp"],
+    images: ["/equipo/shure-sm35.png"],
     tagline: "Micrófono de diadema condensador para actuaciones en vivo",
     description:
       "Micrófono de diadema condensador diseñado para presentaciones en vivo donde el artista necesita libertad de movimiento sin perder calidad de audio. Su patrón polar cardioide captura la voz con claridad y reduce el ruido del entorno y el feedback en escenarios con alto volumen. Requiere bodypack transmisor para funcionar.",
@@ -205,7 +205,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Behringer Powerplay P2",
     brand: "Behringer",
     category: "audio",
-    images: ["/equipo/behringer-p2.webp"],
+    images: ["/equipo/behringer-p2.png"],
     tagline: "Amplificador personal para audífonos (In-ear monitor)",
     description:
       "Amplificador portátil diseñado para monitoreo personal en escenario. Permite conectar audífonos profesionales para escuchar claramente la mezcla de monitoreo durante presentaciones o grabaciones.",
@@ -234,7 +234,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Soundcraft Notepad 12FX",
     brand: "Soundcraft",
     category: "audio",
-    images: ["/equipo/soundcraft-notepad12fx.webp"],
+    images: ["/equipo/soundcraft-notepad12fx.png"],
     tagline: "Mezcladora analógica de 12 canales con efectos e interfaz USB",
     description:
       "Mezcladora analógica compacta de 12 canales diseñada para presentaciones en vivo, conferencias, ensayos musicales y producción de contenido. Integra preamplificadores de micrófono de alta calidad, efectos digitales Lexicon y una interfaz USB para grabación y reproducción directa desde computadora. Su diseño portátil la convierte en una excelente opción para eventos pequeños y medianos, así como para sistemas de sonido móviles o instalaciones sencillas.",
@@ -267,7 +267,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Allen & Heath QU-24C",
     brand: "Allen & Heath",
     category: "audio",
-    images: ["/equipo/allen-heath-qu24c.webp"],
+    images: ["/equipo/allen-heath-qu24c.png"],
     tagline: "Consola digital profesional de 24 canales para sonido en vivo",
     description:
       "Consola digital profesional diseñada para eventos en vivo, conciertos, iglesias y producciones audiovisuales. Ofrece 24 canales de entrada, procesamiento digital avanzado y control mediante pantalla táctil. Gracias a su potente sistema DSP y sus preamplificadores AnalogiQ, proporciona sonido limpio, bajo ruido y excelente calidad profesional.",
@@ -303,7 +303,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Audio-Technica BPHS1",
     brand: "Audio-Technica",
     category: "audio",
-    images: ["/equipo/audio-technica-bphs1.webp"],
+    images: ["/equipo/audio-technica-bphs1.png"],
     tagline: "Headset profesional de transmisión con micrófono dinámico",
     description:
       "Headset profesional diseñado para broadcast, comentaristas, streaming y producción audiovisual. Combina audífonos cerrados de alta calidad con un micrófono dinámico montado en brazo flexible (boom), permitiendo comunicación clara y monitoreo de audio al mismo tiempo. Su diseño cerrado ayuda a aislar el ruido exterior, mientras que el micrófono cardioide captura la voz con gran claridad.",
@@ -337,7 +337,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Blackmagic Design ATEM Mini Extreme ISO",
     brand: "Blackmagic Design",
     category: "video",
-    images: ["/equipo/atem-mini-extreme-iso.webp"],
+    images: ["/equipo/atem-mini-extreme-iso.png"],
     tagline: "Switcher de 8 entradas HDMI con grabación ISO por cámara",
     description:
       "Switcher de video profesional diseñado para producción en vivo y streaming multicámara de alta calidad. Permite conectar hasta 8 fuentes HDMI, cambiar entre cámaras en tiempo real, añadir gráficos y transiciones. Su función ISO permite grabar cada entrada de video de forma independiente, así como el programa final, facilitando la edición posterior con máxima flexibilidad.",
@@ -372,7 +372,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Blackmagic Design ATEM Mini Pro",
     brand: "Blackmagic Design",
     category: "video",
-    images: ["/equipo/atem-mini.webp"],
+    images: ["/equipo/atem-mini.png"],
     tagline: "Switcher compacto para streaming y producción multicámara",
     description:
       "Switcher de video compacto diseñado para streaming y producción en vivo con múltiples cámaras. Permite conectar hasta 4 fuentes HDMI, realizar cambios en tiempo real, añadir transiciones profesionales y transmitir directamente a plataformas como YouTube o Facebook sin necesidad de software adicional. Integra multiview, control de audio y grabación directa a dispositivos USB.",
@@ -408,7 +408,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Magewell Pro Capture Quad HDMI",
     brand: "Magewell",
     category: "video",
-    images: ["/equipo/magewell-pro-capture-quad.webp"],
+    images: ["/equipo/magewell-pro-capture-quad.png"],
     tagline: "Capturadora profesional PCIe de 4 canales HDMI para producción multicámara",
     description:
       "Tarjeta capturadora profesional diseñada para sistemas de producción en vivo y streaming multicámara. Permite capturar hasta 4 señales HDMI simultáneamente en una sola tarjeta PCIe, ofreciendo alta calidad de imagen, baja latencia y gran estabilidad para entornos exigentes. Procesamiento de video de 10 bits con escalado, conversión de color y sincronización precisa. Funcionamiento continuo 24/7.",

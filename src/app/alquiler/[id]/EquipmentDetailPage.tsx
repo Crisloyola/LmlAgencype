@@ -131,7 +131,7 @@ function Gallery({ images, name }: { images: string[]; name: string }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-6"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
@@ -240,7 +240,9 @@ export default function EquipmentDetailPage() {
 
   const waMsg = item
     ? encodeURIComponent(
-        `Hola! Me interesa alquilar:\n*${item.name}*\n\nPrecio día: ${item.priceDay}\nPrecio evento: ${item.priceEvent}${item.priceWeek ? `\nPrecio semana: ${item.priceWeek}` : ""}\n\n¿Está disponible?`
+        item.priceDay === "Consultar"
+          ? `Hola! Me interesa alquilar:\n*${item.name}*\n\n¿Cuál es el precio y disponibilidad?`
+          : `Hola! Me interesa alquilar:\n*${item.name}*\n\nPrecio día: ${item.priceDay} | Fin de semana: ${item.priceEvent}${item.priceWeek ? `\n2 micrófonos: ${item.priceWeek}` : ""}\n\n¿Está disponible?`
       )
     : "";
 
@@ -372,29 +374,37 @@ export default function EquipmentDetailPage() {
             </div>
 
             {/* Pricing grid */}
-            <div className={`grid gap-3 ${item.priceWeek ? "grid-cols-3" : "grid-cols-2"}`}>
-              {[
-                { label: "Por día", price: item.priceDay, accent: false },
-                { label: "Evento", price: item.priceEvent, accent: true },
-                ...(item.priceWeek
-                  ? [{ label: "Por semana", price: item.priceWeek, accent: false }]
-                  : []),
-              ].map((p) => (
-                <div
-                  key={p.label}
-                  className={`text-center p-4 rounded-xl border ${
-                    p.accent
-                      ? "bg-[#B2FA03]/10 border-[#B2FA03]/30"
-                      : "bg-[#161616] border-[#2a2a2a]"
-                  }`}
-                >
-                  <p className="text-[10px] text-gray-600 uppercase tracking-wider mb-1">{p.label}</p>
-                  <p className={`text-xl font-extrabold ${p.accent ? "text-[#B2FA03]" : "text-white"}`}>
-                    {p.price}
-                  </p>
-                </div>
-              ))}
-            </div>
+            {item.priceDay === "Consultar" ? (
+              <div className="bg-[#B2FA03]/10 border border-[#B2FA03]/30 rounded-xl p-5 text-center">
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Precio de alquiler</p>
+                <p className="text-[#B2FA03] text-xl font-extrabold mb-1">Consultar disponibilidad</p>
+                <p className="text-gray-500 text-xs">Escríbenos por WhatsApp para precio y fechas</p>
+              </div>
+            ) : (
+              <div className={`grid gap-3 ${item.priceWeek ? "grid-cols-3" : "grid-cols-2"}`}>
+                {[
+                  { label: "Por día", price: item.priceDay, accent: false },
+                  { label: "Fin de semana", price: item.priceEvent, accent: true },
+                  ...(item.priceWeek
+                    ? [{ label: "2 micrófonos", price: item.priceWeek, accent: false }]
+                    : []),
+                ].map((p) => (
+                  <div
+                    key={p.label}
+                    className={`text-center p-4 rounded-xl border ${
+                      p.accent
+                        ? "bg-[#B2FA03]/10 border-[#B2FA03]/30"
+                        : "bg-[#161616] border-[#2a2a2a]"
+                    }`}
+                  >
+                    <p className="text-[10px] text-gray-600 uppercase tracking-wider mb-1">{p.label}</p>
+                    <p className={`text-xl font-extrabold ${p.accent ? "text-[#B2FA03]" : "text-white"}`}>
+                      {p.price}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-3">

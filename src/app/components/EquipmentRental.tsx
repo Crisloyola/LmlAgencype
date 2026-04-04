@@ -67,7 +67,7 @@ function EquipmentCard({
             src={item.images[0]}
             alt={item.name}
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-[#0d0d0d] gap-3">
@@ -101,15 +101,24 @@ function EquipmentCard({
 
         {/* Prices */}
         <div className="flex gap-3 mt-auto pt-3 border-t border-[#33363F]">
-          <div className="flex-1 text-center">
-            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Por día</p>
-            <p className="text-white font-bold text-[15px]">{item.priceDay}</p>
-          </div>
-          <div className="w-px bg-[#33363F]" />
-          <div className="flex-1 text-center">
-            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Evento</p>
-            <p className="text-[#B2FA03] font-bold text-[15px]">{item.priceEvent}</p>
-          </div>
+          {item.priceDay === "Consultar" ? (
+            <div className="flex-1 text-center">
+              <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Precio</p>
+              <p className="text-[#B2FA03] font-bold text-[14px]">Consultar</p>
+            </div>
+          ) : (
+            <>
+              <div className="flex-1 text-center">
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Por día</p>
+                <p className="text-white font-bold text-[15px]">{item.priceDay}</p>
+              </div>
+              <div className="w-px bg-[#33363F]" />
+              <div className="flex-1 text-center">
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Fin de sem.</p>
+                <p className="text-[#B2FA03] font-bold text-[15px]">{item.priceEvent}</p>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Availability text */}
@@ -222,8 +231,8 @@ export default function EquipmentRental() {
           <span className="text-[#B2FA03]">proyecto digital</span>
         </h2>
         <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-          Cámaras, iluminación, audio y más — todo lo que necesitas para
-          producir contenido profesional. Disponible por día o para tu evento completo.
+          Sistemas inalámbricos, consolas de audio, switchers de video y más —
+          todo lo que necesitas para tu evento o producción. Disponible por día o fin de semana.
         </p>
 
         {/* Stats row */}
