@@ -99,15 +99,24 @@ function EquipCard({ item, index }: { item: Equipment; index: number }) {
 
         {/* Prices */}
         <div className="flex gap-2 pt-2 mt-auto border-t border-[#2a2a2a]">
-          <div className="flex-1 text-center">
-            <p className="text-[9px] text-gray-600 uppercase tracking-wider">Día</p>
-            <p className="text-white font-extrabold text-[14px]">{item.priceDay}</p>
-          </div>
-          <div className="w-px bg-[#2a2a2a]" />
-          <div className="flex-1 text-center">
-            <p className="text-[9px] text-gray-600 uppercase tracking-wider">Evento</p>
-            <p className="text-[#B2FA03] font-extrabold text-[14px]">{item.priceEvent}</p>
-          </div>
+          {item.priceDay === "Consultar" ? (
+            <div className="flex-1 text-center">
+              <p className="text-[9px] text-gray-600 uppercase tracking-wider">Precio</p>
+              <p className="text-[#B2FA03] font-extrabold text-[13px]">Consultar</p>
+            </div>
+          ) : (
+            <>
+              <div className="flex-1 text-center">
+                <p className="text-[9px] text-gray-600 uppercase tracking-wider">Día</p>
+                <p className="text-white font-extrabold text-[14px]">{item.priceDay}</p>
+              </div>
+              <div className="w-px bg-[#2a2a2a]" />
+              <div className="flex-1 text-center">
+                <p className="text-[9px] text-gray-600 uppercase tracking-wider">Fin de sem.</p>
+                <p className="text-[#B2FA03] font-extrabold text-[14px]">{item.priceEvent}</p>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Availability */}
@@ -165,7 +174,7 @@ const ADS = [
     href: "#catalogo",
   },
   {
-    image: "/equipo/publi01.png",
+    image: "/agency/agency3.webp",
     badge: "Audio Profesional",
     title: "Sonido que impacta",
     highlight: "en cada evento",
@@ -175,7 +184,7 @@ const ADS = [
     href: "#catalogo",
   },
   {
-    image: "/equipo/publi01.png",
+    image: "/agency/agency1.webp",
     badge: "Video Profesional",
     title: "Producción multicámara",
     highlight: "al alcance de todos",

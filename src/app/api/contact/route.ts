@@ -1,15 +1,35 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(req: Request) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const { name, email, message } = await req.json();
-  console.log("Solicitud recibida:", name, email, message);
+  let name: string, email: string, message: string;
 
   try {
-    const data = await resend.emails.send({
-      from: 'LML Agency <contacto@lmlagencype.com>', // O usa un from validado por Resend
-      to: process.env.EMAIL_TO || '',
+    ({ name, email, message } = await req.json());
+  } catch {
+    return NextResponse.json({ success: false, error: "JSON inválido" }, { status: 400 });
+  }
+
+  if (!name || !email || !message) {
+    return NextResponse.json({ success: false, error: "Campos incompletos" }, { status: 400 });
+  }
+
+  if (!emailRegex.test(email)) {
+    return NextResponse.json({ success: false, error: "Email inválido" }, { status: 400 });
+  }
+
+  if (!process.env.EMAIL_TO) {
+    return NextResponse.json({ success: false, error: "Configuración incompleta" }, { status: 500 });
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
+  try {
+    await resend.emails.send({
+      from: "LML Agency <contacto@lmlagencype.com>",
+      to: process.env.EMAIL_TO,
       subject: `Nuevo mensaje de ${name}`,
       html: `
         <p><strong>Nombre:</strong> ${name}</p>
@@ -17,11 +37,8 @@ export async function POST(req: Request) {
         <p><strong>Mensaje:</strong><br/>${message}</p>
       `,
     });
-
-    console.log("Respuesta de Resend:", data);
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Error al enviar con Resend:", error);
+  } catch {
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }

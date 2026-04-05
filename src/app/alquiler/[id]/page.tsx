@@ -1,5 +1,6 @@
 // src/app/alquiler/[id]/page.tsx — SERVER COMPONENT
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { EQUIPMENT, getEquipmentBySlug } from "../../lib/equipment-data";
 import EquipmentDetailPage from "./EquipmentDetailPage";
 
@@ -61,12 +62,13 @@ export default async function Page({ params }: Props) {
   const { id } = await params;
   const item = getEquipmentBySlug(id);
 
-  const priceNum = item
+  if (!item) notFound();
+
+  const priceNum = item.priceDay !== "Consultar"
     ? parseFloat(item.priceDay.replace(/[^\d.]/g, ""))
     : null;
 
-  const jsonLd = item
-    ? {
+  const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Product",
         name: item.name,
@@ -95,17 +97,14 @@ export default async function Page({ params }: Props) {
             url: siteUrl,
           },
         },
-      }
-    : null;
+  };
 
   return (
     <>
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <EquipmentDetailPage />
     </>
   );
