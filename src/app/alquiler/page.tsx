@@ -1,6 +1,6 @@
 "use client";
 // src/app/alquiler/page.tsx
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -152,6 +152,142 @@ function EquipCard({ item, index }: { item: Equipment; index: number }) {
   );
 }
 
+// ── Ad Slider ─────────────────────────────────────────────────────────────────
+const ADS = [
+  {
+    image: "/equipo/publi01.png",
+    badge: "Alquiler de Equipos",
+    title: "Equipa tu producción",
+    highlight: "desde S/ 35 / día",
+    sub: "Sistemas inalámbricos, consolas, switchers y más para tu evento en Lima.",
+    bullets: [] as string[],
+    cta: "Ver catálogo",
+    href: "#catalogo",
+  },
+  {
+    image: "/equipo/publi01.png",
+    badge: "Audio Profesional",
+    title: "Sonido que impacta",
+    highlight: "en cada evento",
+    sub: "Micrófonos Shure, consolas Allen & Heath y sistemas inalámbricos digitales.",
+    bullets: [] as string[],
+    cta: "Ver equipos de audio",
+    href: "#catalogo",
+  },
+  {
+    image: "/equipo/publi01.png",
+    badge: "Video Profesional",
+    title: "Producción multicámara",
+    highlight: "al alcance de todos",
+    sub: "Switchers Blackmagic, capturadoras y todo para tu streaming en vivo.",
+    bullets: [] as string[],
+    cta: "Ver equipos de video",
+    href: "#catalogo",
+  },
+];
+
+function AdSlider() {
+  const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const DURATION = 5000;
+
+  useEffect(() => {
+    setProgress(0);
+    const step = 50;
+    let elapsed = 0;
+    const timer = setInterval(() => {
+      elapsed += step;
+      setProgress((elapsed / DURATION) * 100);
+      if (elapsed >= DURATION) {
+        setCurrent((p) => (p + 1) % ADS.length);
+        elapsed = 0;
+        setProgress(0);
+      }
+    }, step);
+    return () => clearInterval(timer);
+  }, [current]);
+
+  const ad = ADS[current];
+
+  return (
+    <div className="relative w-full rounded-2xl overflow-hidden mb-10"
+         style={{ height: "clamp(200px, 36vw, 380px)" }}>
+
+      {/* Slides */}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={current}
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.9, ease: "easeInOut" }}
+        >
+          <img src={ad.image} alt={ad.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Content */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`content-${current}`}
+          className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 gap-2 max-w-xl"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <span className="text-[#B2FA03] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">
+            {ad.badge}
+          </span>
+          <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight drop-shadow">
+            {ad.title}{" "}
+            <span className="text-[#B2FA03]">{ad.highlight}</span>
+          </h2>
+          <p className="text-gray-300 text-xs sm:text-sm max-w-sm leading-relaxed hidden sm:block">
+            {ad.sub}
+          </p>
+          <a
+            href={ad.href}
+            className="mt-2 inline-flex items-center gap-2 bg-[#B2FA03] text-black font-extrabold
+                       px-5 py-2.5 rounded-full text-xs sm:text-sm w-fit
+                       hover:bg-lime-300 hover:scale-105 transition-all duration-200"
+          >
+            {ad.cta}
+            <ChevronRight size={14} />
+          </a>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Progress dots */}
+      <div className="absolute bottom-4 left-6 sm:left-10 flex items-center gap-2">
+        {ADS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className="relative overflow-hidden rounded-full h-1 transition-all duration-300"
+            style={{ width: i === current ? "36px" : "8px" }}
+          >
+            <span className="absolute inset-0 bg-white/25 rounded-full" />
+            {i === current && (
+              <span
+                className="absolute inset-y-0 left-0 bg-[#B2FA03] rounded-full"
+                style={{ width: `${progress}%`, transition: "none" }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Counter */}
+      <div className="absolute bottom-4 right-5 text-white/30 text-[10px] font-bold tracking-widest select-none">
+        {String(current + 1).padStart(2, "0")} / {String(ADS.length).padStart(2, "0")}
+      </div>
+    </div>
+  );
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function AlquilerPage() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -206,42 +342,9 @@ export default function AlquilerPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-10">
-        {/* ── Header ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-10 space-y-3"
-        >
-          <span className="inline-block bg-[#B2FA03]/10 border border-[#B2FA03]/25 text-[#B2FA03]
-                           text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
-            Alquiler de Equipos
-          </span>
-          <h1 className="text-[32px] md:text-[48px] font-extrabold text-white leading-none">
-            Equipa tu producción
-            <br />
-            <span className="text-[#B2FA03]">desde S/ 50 / día</span>
-          </h1>
-          <p className="text-gray-500 text-sm max-w-lg">
-            Cámaras, iluminación, audio y más — todo lo que necesitas para
-            producir contenido profesional en Lima.
-          </p>
-
-          {/* Stats */}
-          <div className="flex gap-6 pt-2">
-            {[
-              { v: `${EQUIPMENT.length}`, l: "equipos" },
-              { v: `${EQUIPMENT.filter((e) => e.available).length}`, l: "disponibles" },
-              { v: `${EQUIPMENT.filter((e) => e.isNew).length}`, l: "recientes" },
-            ].map((s) => (
-              <div key={s.l}>
-                <p className="text-[#B2FA03] text-xl font-extrabold">{s.v}</p>
-                <p className="text-gray-600 text-[10px] uppercase tracking-wider">{s.l}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 py-10" id="catalogo">
+        {/* ── Ad Slider ── */}
+        <AdSlider />
 
         {/* ── Search + filter ── */}
         <div className="flex flex-col sm:flex-row gap-3 mb-5">

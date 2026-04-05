@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const slides = [
-  { image: "/agency/agency3.webp", cta: false },
-  { image: "/agency/agency1.webp", cta: true },
+  { image: "/agency/agency6.webp", cta: false },
+  { image: "/equipo/wall2.png", cta: true },
 ];
 
 export default function HeroBanner() {
@@ -16,7 +16,7 @@ export default function HeroBanner() {
   useEffect(() => {
     if (!visible) return;
     setProgress(0);
-    const duration = 4000;
+    const duration = 7000;
     const step = 50;
     let elapsed = 0;
 
@@ -76,10 +76,45 @@ export default function HeroBanner() {
                 <img
                   src={slides[current].image}
                   alt={`Banner slide ${current + 1}`}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover ${slides[current].cta ? "object-right sm:object-center" : "object-center"}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20 sm:bg-gradient-to-t" />
               </motion.div>
+            </AnimatePresence>
+
+            {/* Contenido — slide 1 */}
+            <AnimatePresence>
+              {!slides[current].cta && (
+                <motion.div
+                  key="slide1-content"
+                  className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 gap-3 max-w-lg"
+                  style={{ background: "linear-gradient(to right, rgba(0,0,0,0.75) 60%, transparent)" }}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <span className="text-[#B2FA03] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">
+                    Latam Masters Agency
+                  </span>
+                  <p className="text-white text-sm sm:text-base leading-relaxed">
+                    Sabemos que un gran equipo de audio o video no sirve de nada sin el conocimiento adecuado.
+                    Por eso nuestro equipo se encarga de que recibas:
+                  </p>
+                  <ul className="flex flex-col gap-2">
+                    {[
+                      "Equipos impecables y desinfectados. 🎙️",
+                      "Asesoría técnica personalizada. 💡",
+                      "Puntualidad y compromiso con tu cronograma. 🚀",
+                    ].map((b) => (
+                      <li key={b} className="flex items-center gap-2.5 text-white text-xs sm:text-sm font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#B2FA03] shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
             </AnimatePresence>
 
             {/* CTA — slide 2 */}
@@ -87,58 +122,33 @@ export default function HeroBanner() {
               {slides[current].cta && (
                 <motion.div
                   key="cta"
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-[40px] sm:px-[60px] text-center"
-                  initial={{ opacity: 0, y: 24 }}
+                  className="absolute bottom-8 sm:bottom-44 inset-x-0 sm:inset-x-auto sm:right-10 flex flex-col items-center sm:items-end gap-2 px-6 sm:px-0"
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, delay: 0.25 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <motion.p
-                    className="text-[#B2FA03] text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em]"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
+                  <Link
+                    href="/alquiler"
+                    onClick={() => setVisible(false)}
+                    className="relative inline-flex items-center gap-2.5 bg-[#B2FA03] text-black font-extrabold
+                               px-6 py-3 sm:px-8 sm:py-3.5 rounded-full text-sm sm:text-base
+                               shadow-[0_0_40px_rgba(178,250,3,0.5),0_8px_24px_rgba(0,0,0,0.5)]
+                               hover:bg-lime-300 hover:shadow-[0_0_60px_rgba(178,250,3,0.75)]
+                               hover:scale-105 hover:-translate-y-0.5
+                               active:scale-97 transition-all duration-300 overflow-hidden group"
                   >
-                    Alquiler Profesional
-                  </motion.p>
-
-                  <motion.h2
-                    className="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-tight max-w-2xl drop-shadow-lg"
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45 }}
-                  >
-                    Equipa tu próximo{" "}
-                    <span className="text-[#B2FA03]">proyecto</span>
-                  </motion.h2>
-
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.88 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    <Link
-                      href="/alquiler"
-                      onClick={() => setVisible(false)}
-                      className="relative inline-flex items-center gap-3 bg-[#B2FA03] text-black font-extrabold
-                                 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full text-sm sm:text-base
-                                 shadow-[0_0_40px_rgba(178,250,3,0.5),0_8px_24px_rgba(0,0,0,0.5)]
-                                 hover:bg-lime-300 hover:shadow-[0_0_60px_rgba(178,250,3,0.75)]
-                                 hover:scale-105 hover:-translate-y-0.5
-                                 active:scale-97 transition-all duration-300 overflow-hidden group"
-                    >
-                      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
-                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                        <line x1="3" y1="6" x2="21" y2="6"/>
-                        <path d="M16 10a4 4 0 0 1-8 0"/>
-                      </svg>
-                      Alquila tu equipo ahora
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:translate-x-1 transition-transform duration-200">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </Link>
-                  </motion.div>
+                    <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                      <line x1="3" y1="6" x2="21" y2="6"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    Alquila tu equipo ahora
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:translate-x-1 transition-transform duration-200">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
                 </motion.div>
               )}
             </AnimatePresence>
