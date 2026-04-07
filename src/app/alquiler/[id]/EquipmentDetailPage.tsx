@@ -204,12 +204,12 @@ function RelatedCard({ item }: { item: Equipment }) {
     <Link href={`/alquiler/${item.slug}`} className="group block">
       <div className="bg-[#161616] border border-[#2a2a2a] rounded-xl overflow-hidden
                       hover:border-[#B2FA03]/40 transition-all duration-200">
-        <div className="relative h-28 bg-[#0e0e0e] overflow-hidden">
+        <div className="relative aspect-[4/3] bg-[#0e0e0e] overflow-hidden">
           <img
             src={item.images[0]}
             alt={item.name}
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
+            className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-400"
           />
           {item.isNew && (
             <span className="absolute top-2 left-2 bg-[#B2FA03] text-black text-[8px] font-extrabold uppercase px-1.5 py-0.5 rounded-full">
