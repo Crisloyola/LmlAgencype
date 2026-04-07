@@ -441,7 +441,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Elgato Cam Link 4K",
     brand: "Elgato",
     category: "video",
-    images: ["/equipo/elgato-cam-link-4k.webp"],
+    images: ["/equipo/elgato-cam-link-4k.png"],
     tagline: "Capturadora HDMI USB para streaming con cámaras profesionales",
     description:
       "Capturadora externa diseñada para conectar cámaras profesionales (DSLR, mirrorless o videocámaras) directamente a una computadora mediante USB, convirtiéndolas en una webcam de alta calidad. Permite transmitir, grabar o realizar videollamadas con calidad hasta 4K con latencia mínima. Funcionamiento plug & play, compatible con OBS, Zoom, Teams, Discord y más.",

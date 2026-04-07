@@ -59,13 +59,13 @@ function EquipCard({ item, index }: { item: Equipment; index: number }) {
       />
 
       {/* Thumbnail */}
-      <div className="relative h-44 bg-[#0e0e0e] overflow-hidden">
+      <div className="relative aspect-[4/3] bg-[#0e0e0e] overflow-hidden">
         {!imgErr ? (
           <img
             src={item.images[0]}
             alt={item.name}
             onError={() => setImgErr(true)}
-            className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+            className="w-full h-full object-contain p-4 group-hover:scale-[1.04] transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-2">
@@ -73,7 +73,6 @@ function EquipCard({ item, index }: { item: Equipment; index: number }) {
             <span className="text-[10px] text-gray-600 text-center px-4">{item.name}</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-transparent to-transparent" />
       </div>
 
       {/* Body */}
