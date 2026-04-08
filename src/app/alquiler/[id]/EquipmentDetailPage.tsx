@@ -13,7 +13,14 @@ import {
   Zap,
   Package,
   Star,
+  ScrollText,
+  ShieldCheck,
+  Clock,
+  CreditCard,
+  AlertTriangle,
+  Wrench,
 } from "lucide-react";
+import TermsModal from "../../components/TermsModal";
 import {
   CATEGORIES,
   getEquipmentBySlug,
@@ -236,7 +243,8 @@ export default function EquipmentDetailPage() {
   const related = item ? getRelatedEquipment(item, 4) : [];
   const cat = item ? CATEGORIES.find((c) => c.id === item.category) : null;
 
-  const [activeTab, setActiveTab] = useState<"specs" | "incluye" | "uso">("specs");
+  const [activeTab, setActiveTab] = useState<"specs" | "incluye" | "uso" | "condiciones">("specs");
+  const [showTerms, setShowTerms] = useState(false);
 
   const waMsg = item
     ? encodeURIComponent(
@@ -265,6 +273,7 @@ export default function EquipmentDetailPage() {
     { id: "specs", label: "Especificaciones", icon: Zap },
     { id: "incluye", label: "Incluye", icon: Package },
     { id: "uso", label: "Ideal para", icon: Star },
+    { id: "condiciones", label: "Condiciones", icon: ScrollText },
   ] as const;
 
   return (
@@ -429,6 +438,18 @@ export default function EquipmentDetailPage() {
               </Link>
             </div>
 
+            {/* Legal notice */}
+            <p className="text-[11px] text-gray-600 leading-relaxed">
+              Al reservar, aceptas nuestros{" "}
+              <button
+                onClick={() => setShowTerms(true)}
+                className="text-[#B2FA03]/70 hover:text-[#B2FA03] underline underline-offset-2 transition-colors"
+              >
+                términos y condiciones de alquiler
+              </button>
+              .
+            </p>
+
             {/* Added date */}
             <p className="text-[10px] text-gray-700">
               Agregado al catálogo:{" "}
@@ -546,6 +567,75 @@ export default function EquipmentDetailPage() {
                 ))}
               </motion.div>
             )}
+
+            {activeTab === "condiciones" && (
+              <motion.div
+                key="condiciones"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="space-y-3"
+              >
+                {[
+                  {
+                    icon: ShieldCheck,
+                    title: "Identificación obligatoria",
+                    desc: "Se requiere DNI (ambas caras) y comprobante de domicilio. Para empresas: orden de servicio, RUC y datos del responsable.",
+                  },
+                  {
+                    icon: CreditCard,
+                    title: "Pago anticipado",
+                    desc: "El pago debe realizarse antes de la entrega. Se puede solicitar un depósito en garantía reembolsable al devolver el equipo en buen estado.",
+                  },
+                  {
+                    icon: Clock,
+                    title: "Devolución puntual",
+                    desc: "La devolución debe hacerse en la fecha y hora acordadas. Los retrasos generan cargos adicionales según tarifa vigente.",
+                  },
+                  {
+                    icon: AlertTriangle,
+                    title: "Responsabilidad total",
+                    desc: "El cliente es responsable del equipo desde la entrega hasta su devolución. Daños, pérdida o robo se cubren al costo comercial del equipo.",
+                  },
+                  {
+                    icon: Wrench,
+                    title: "Uso correcto",
+                    desc: "Los equipos deben usarse únicamente para el fin declarado. No se permite subarrendar, transferir ni prestar los equipos a terceros.",
+                  },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.06 }}
+                      className="flex gap-4 bg-[#161616] border border-[#2a2a2a] rounded-xl p-4"
+                    >
+                      <div className="shrink-0 w-8 h-8 rounded-lg bg-[#B2FA03]/10 border border-[#B2FA03]/20 flex items-center justify-center mt-0.5">
+                        <Icon size={15} className="text-[#B2FA03]" />
+                      </div>
+                      <div>
+                        <p className="text-white text-sm font-bold mb-1">{item.title}</p>
+                        <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => setShowTerms(true)}
+                    className="flex items-center gap-2 text-xs text-[#B2FA03]/70 hover:text-[#B2FA03] transition-colors group"
+                  >
+                    <ScrollText size={13} />
+                    Ver términos y condiciones completos
+                    <ChevronRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+                </div>
+              </motion.div>
+            )}
           </AnimatePresence>
         </motion.div>
 
@@ -604,8 +694,19 @@ export default function EquipmentDetailPage() {
             <WAIcon />
             Contactar a LML Agency
           </a>
+          <p className="text-[11px] text-gray-600">
+            Al reservar, aceptas nuestros{" "}
+            <button
+              onClick={() => setShowTerms(true)}
+              className="text-[#B2FA03]/60 hover:text-[#B2FA03] underline underline-offset-2 transition-colors"
+            >
+              términos y condiciones
+            </button>
+          </p>
         </motion.div>
       </div>
+
+      {showTerms && <TermsModal onClose={() => setShowTerms(false)} />}
     </div>
   );
 }
