@@ -68,6 +68,16 @@ export default function NavbarSection() {
               Alquiler de Equipos
             </Link>
 
+            {/* Descargar Brochure */}
+            <a
+              href="/brochure.pdf"
+              download="LML_Agency_Brochure.pdf"
+              className="flex items-center gap-2 text-white/70 font-[450] px-3 py-1.5 hover:text-white transition-colors duration-200"
+            >
+              <DownloadIcon />
+              Descargar Brochure
+            </a>
+
             {/* Comunícate */}
             <button
               onClick={() => setShowContactForm(true)}
@@ -160,6 +170,16 @@ export default function NavbarSection() {
             className={`mt-auto flex flex-col gap-3 transition-all duration-300
                         ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
+            <a
+              href="/brochure.pdf"
+              download="LML_Agency_Brochure.pdf"
+              onClick={() => setIsOpen(false)}
+              className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl border border-white/15
+                         text-white text-[16px] font-semibold hover:bg-white/[0.08] transition-all duration-200"
+            >
+              <DownloadIcon />
+              Descargar Brochure
+            </a>
             <button
               onClick={() => { setIsOpen(false); setShowContactForm(true); }}
               className="w-full py-4 rounded-2xl border border-white/15 text-white text-[16px] font-semibold
@@ -184,6 +204,16 @@ export default function NavbarSection() {
 
       <ContactForm isOpen={showContactForm} onClose={() => setShowContactForm(false)} />
     </>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
   );
 }
 
