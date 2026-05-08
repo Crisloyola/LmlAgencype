@@ -32,10 +32,10 @@ export type Equipment = {
 // ── Categories ────────────────────────────────────────────────────────────────
 
 export const CATEGORIES: Category[] = [
-  { id: "all",        label: "Todo",                          emoji: "📦" },
-  { id: "inalambrico", label: "Sistemas inalámbricos",        emoji: "🎤" },
-  { id: "audio",      label: "Audio profesional",             emoji: "🎙️" },
-  { id: "video",      label: "Video profesional",             emoji: "🎥" },
+  { id: "all",         label: "Todo",                    emoji: "📦" },
+  { id: "inalambrico", label: "Eventos",                 emoji: "🎤" },
+  { id: "audio",       label: "Podcast & Conferencias",  emoji: "🎙️" },
+  { id: "video",       label: "Streaming & Video",       emoji: "🎥" },
 ];
 
 // ── Equipment list ────────────────────────────────────────────────────────────
@@ -358,8 +358,8 @@ export const EQUIPMENT: Equipment[] = [
       "ATEM Software Control (PC/Mac)",
     ],
     idealFor: ["Eventos en vivo", "Iglesias", "Streaming profesional (YouTube, Facebook)", "Conferencias y eventos corporativos", "Producción audiovisual multicámara", "Grabación de contenido digital"],
-    priceDay: "Consultar",
-    priceEvent: "Consultar",
+    priceDay: "Desde S/ 350",
+    priceEvent: "Desde S/ 550",
     available: true,
     isNew: false,
     badge: "Pro",
@@ -393,8 +393,8 @@ export const EQUIPMENT: Equipment[] = [
       "ATEM Software Control (PC/Mac)",
     ],
     idealFor: ["Streaming en vivo (YouTube, Facebook)", "Iglesias", "Conferencias y eventos corporativos", "Producción de contenido digital", "Podcasts en video", "Clases virtuales y capacitación"],
-    priceDay: "Consultar",
-    priceEvent: "Consultar",
+    priceDay: "Desde S/ 200",
+    priceEvent: "Desde S/ 320",
     available: true,
     isNew: false,
     whatsappBase: "https://wa.link/7cmlp3",
@@ -428,8 +428,8 @@ export const EQUIPMENT: Equipment[] = [
       "Bracket de instalación",
     ],
     idealFor: ["Producción multicámara en vivo", "Streaming profesional", "Iglesias y eventos", "Conferencias y eventos corporativos", "Estudios de grabación audiovisual", "Broadcast"],
-    priceDay: "Consultar",
-    priceEvent: "Consultar",
+    priceDay: "Desde S/ 150",
+    priceEvent: "Desde S/ 240",
     available: true,
     isNew: false,
     whatsappBase: "https://wa.link/7cmlp3",
@@ -458,8 +458,8 @@ export const EQUIPMENT: Equipment[] = [
       "Elgato Cam Link 4K",
     ],
     idealFor: ["Streaming (YouTube, Facebook, Twitch)", "Videoconferencias profesionales", "Producción de contenido digital", "Podcasts en video", "Clases virtuales", "Grabación con cámaras DSLR / mirrorless"],
-    priceDay: "Consultar",
-    priceEvent: "Consultar",
+    priceDay: "Desde S/ 80",
+    priceEvent: "Desde S/ 130",
     available: true,
     isNew: false,
     whatsappBase: "https://wa.link/7cmlp3",

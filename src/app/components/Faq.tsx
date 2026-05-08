@@ -48,7 +48,7 @@ export default function FAQWithImage() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }} 
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="text-white py-5 px-2  lg:px-2 relative"
