@@ -430,7 +430,7 @@ const PACKS = [
       "Operador técnico (opcional)",
     ],
     pricing: [
-      { label: "Solo equipos", price: "S/ 2,500", unit: "· consulta con operador", highlight: true },
+      { label: "Desde", price: "S/ 2,500", unit: "· consulta con operador", highlight: true },
     ],
     waMsg:
       "Hola! Me interesa el *Pack Pro* (ATEM Extreme ISO + Allen & Heath QU-24C + SLXD4D + cámaras). ¿Pueden cotizarme para mi fecha?",
