@@ -10,7 +10,8 @@ import 'swiper/css'
 type ImageMedia     = { type: 'image';     src: string; alt?: string }
 type InstagramMedia = { type: 'instagram'; url: string; thumbnail?: string }
 type VideoMedia     = { type: 'video';     src: string; poster?: string }
-type MediaItem      = ImageMedia | InstagramMedia | VideoMedia
+type TikTokMedia    = { type: 'tiktok';    url: string; thumbnail?: string }
+type MediaItem      = ImageMedia | InstagramMedia | VideoMedia | TikTokMedia
 
 type EventItem = {
   id: string
@@ -46,20 +47,22 @@ const categories: CategoryData[] = [
     accent: '#B2FA03',
     darkText: true,
     events: [
-      {
-        id: 'cocinando-serpa',
-        title: 'Cocinando con la Serpa',
+       {
+        id: 'noche-dorada',
+        title: 'La Noche Dorada',
         media: [
-          { type: 'image', src: '/stream/03.webp' },
-          { type: 'image', src: '/stream/c01.webp' },
-          { type: 'image', src: '/stream/c02.webp' },
-          { type: 'image', src: '/stream/c03.webp' },
-          { type: 'image', src: '/stream/ClaudiaSerpa09.05-15.jpg' },
-          { type: 'image', src: '/stream/ClaudiaSerpa09.05-23.jpg' },
-          { type: 'image', src: '/stream/ClaudiaSerpa09.05-70.jpg' },
-          { type: 'image', src: '/stream/ClaudiaSerpa09.05-202.jpg' },
+          { type: 'tiktok', url: 'https://www.tiktok.com/@lml_agency/video/7563435975871892744?lang=es-419', thumbnail: '/nochedorada/LaNocheDorada-46.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-12.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-22.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-27.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-46.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-103.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-105.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-109.jpg' },
+          { type: 'image', src: '/nochedorada/LaNocheDorada-137.jpg' },
         ],
       },
+  
       {
         id: 'pichanga-dad',
         title: 'Pichanga de Dad',
@@ -80,6 +83,20 @@ const categories: CategoryData[] = [
           { type: 'image', src: '/stream/fabio03.webp' },
           { type: 'image', src: '/stream/fabio04.webp' },
           { type: 'instagram', url: 'https://www.instagram.com/p/DIRg6RpzAZw/', thumbnail: '/stream/fabio01.webp' },
+        ],
+      },
+          {
+        id: 'cocinando-serpa',
+        title: 'Cocinando con la Serpa',
+        media: [
+          { type: 'image', src: '/stream/03.webp' },
+          { type: 'image', src: '/stream/c01.webp' },
+          { type: 'image', src: '/stream/c02.webp' },
+          { type: 'image', src: '/stream/c03.webp' },
+          { type: 'image', src: '/stream/ClaudiaSerpa09.05-15.jpg' },
+          { type: 'image', src: '/stream/ClaudiaSerpa09.05-23.jpg' },
+          { type: 'image', src: '/stream/ClaudiaSerpa09.05-70.jpg' },
+          { type: 'image', src: '/stream/ClaudiaSerpa09.05-202.jpg' },
         ],
       },
       { id: 'coming-stream-1', title: 'Próximamente', media: [], coming: true },
@@ -200,11 +217,22 @@ const categories: CategoryData[] = [
     events: [
       {
         id: 'evento-especial-1',
-        title: 'Evento Especial',
+        title: 'Lima Media Marathon',
         media: [
-          { type: 'instagram', url: 'https://www.instagram.com/p/DQUol5uAQpd/' },
+          { type: 'instagram', url: 'https://www.instagram.com/p/DQUol5uAQpd/', thumbnail:'/gloria/LimaMediaMarathon-129.jpg' },
+          {type:'image', src: '/gloria/LimaMediaMarathon-71.jpg' },
+          {type:'image', src: '/gloria/LimaMediaMarathon-76.jpg' },
+          {type:'image', src: '/gloria/LimaMediaMarathon-79.jpg' },
+          {type:'image', src: '/gloria/LimaMediaMarathon-87.jpg' },
+          {type:'image', src: '/gloria/LimaMediaMarathon-90.jpg' },
+          {type:'image', src: '/gloria/LimaMediaMarathon-122.jpg' },
+          {type:'image', src: '/gloria/LimaMediaMarathon-143.jpg' },
         ],
       },
+      { id: 'coming-stream-1', title: 'Próximamente', media: [], coming: true },
+      { id: 'coming-stream-2', title: 'Próximamente', media: [], coming: true },
+      { id: 'coming-stream-3', title: 'Próximamente', media: [], coming: true },
+      { id: 'coming-stream-4', title: 'Próximamente', media: [], coming: true },
     ],
   },
 ]
@@ -214,6 +242,7 @@ function getThumb(media: MediaItem[]): string | null {
   for (const item of media) {
     if (item.type === 'image') return item.src
     if (item.type === 'instagram' && item.thumbnail) return item.thumbnail
+    if (item.type === 'tiktok' && item.thumbnail) return item.thumbnail
     if (item.type === 'video' && item.poster) return item.poster
   }
   return null
@@ -301,6 +330,40 @@ function MediaDisplay({ media, accent }: { media: MediaItem[]; accent: string })
                       <div>
                         <p className="text-white font-extrabold text-base leading-tight tracking-wide">Mira nuestro trabajo</p>
                         <p className="text-white/70 text-[11px] font-medium">Ver en Instagram →</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              )}
+
+              {item.type === 'tiktok' && (
+                <a href={item.url} target="_blank" rel="noreferrer" className="relative w-full h-full block overflow-hidden group">
+                  {item.thumbnail ? (
+                    <>
+                      <img src={item.thumbnail} aria-hidden className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40 pointer-events-none" />
+                      <div className="relative w-full h-full flex items-center justify-center z-10">
+                        <img src={item.thumbnail} alt="video" className="max-w-full max-h-full object-contain" />
+                      </div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-[#010101] via-[#69C9D0] to-[#EE1D52]" />
+                  )}
+                  <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-4">
+                    <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/50 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300 shadow-2xl">
+                      <svg className="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-5 left-0 right-0 z-30 flex justify-center">
+                    <div className="flex items-center gap-3 px-6 py-3 rounded-2xl backdrop-blur-md border border-white/20 shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                      style={{ background: 'linear-gradient(135deg, rgba(1,1,1,0.85) 0%, rgba(105,201,208,0.85) 50%, rgba(238,29,82,0.85) 100%)' }}
+                    >
+                      <svg className="w-5 h-5 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.52V6.74a4.85 4.85 0 01-1-.05z"/>
+                      </svg>
+                      <div>
+                        <p className="text-white font-extrabold text-base leading-tight tracking-wide">Mira nuestro trabajo</p>
+                        <p className="text-white/70 text-[11px] font-medium">Ver en TikTok →</p>
                       </div>
                     </div>
                   </div>
@@ -578,7 +641,7 @@ function FeaturedHero() {
           {/* Stats */}
           <div className="flex items-center gap-4 md:gap-6">
             {[
-              { valor: '10+', label: 'Proyectos' },
+              { valor: '100+', label: 'Proyectos' },
               { valor: '2',   label: 'Años' },
               { valor: 'Lima', label: 'Perú' },
             ].map(({ valor, label }, i, arr) => (

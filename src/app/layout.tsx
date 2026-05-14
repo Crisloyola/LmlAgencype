@@ -111,7 +111,7 @@ const organizationJsonLd = {
     name: "Lima",
   },
   priceRange: "S/ 50 - S/ 320",
-  sameAs: [],
+  sameAs: ['https://www.instagram.com/lmlagencype/', 'https://www.facebook.com/lmlagencype/', 'https://www.tiktok.com/@lmlagency'  ],
 };
 
 const websiteJsonLd = {
