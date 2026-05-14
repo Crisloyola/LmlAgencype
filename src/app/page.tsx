@@ -57,15 +57,17 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10">
           <Navbar />
-          <div className="max-w-7xl mx-auto px-6">
+          <section id="nuestro" className="max-w-7xl mx-auto px-6">
             <StreamerGamingGallery />
-          </div>
+          </section>
 
-          <FeaturesSection />
+          <section id="somos">
+            <FeaturesSection />
+          </section>
 
-          <div className="max-w-7xl mx-auto mt-12">
+          <section id="historia" className="max-w-7xl mx-auto mt-12">
             <HistoryTime />
-          </div>
+          </section>
           <div className="max-w-7xl mx-auto mt-12">
             <Footer />
           </div>
