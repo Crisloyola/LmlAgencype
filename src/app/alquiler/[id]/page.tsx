@@ -4,8 +4,7 @@ import { notFound } from "next/navigation";
 import { EQUIPMENT, getEquipmentBySlug } from "../../lib/equipment-data";
 import EquipmentDetailPage from "./EquipmentDetailPage";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://lmlagencype.com";
+const siteUrl = "https://lmlagencype.com";
 
 export function generateStaticParams() {
   return EQUIPMENT.map((e) => ({ id: e.slug }));
