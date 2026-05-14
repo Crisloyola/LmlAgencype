@@ -39,7 +39,7 @@ export default function FeaturesSection() {
       >
         <div className="flex flex-col items-center justify-center py-8" id="somos">
           <h1 className="text-4xl md:text-[55px] font-bold text-center mb-6">
-            Producción Creativa FEATURES
+            Producción Creativa
           </h1>
         </div>
 
