@@ -5,7 +5,7 @@ import { EQUIPMENT, getEquipmentBySlug } from "../../lib/equipment-data";
 import EquipmentDetailPage from "./EquipmentDetailPage";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://lmlagencype.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://lmlagencype.com";
 
 export function generateStaticParams() {
   return EQUIPMENT.map((e) => ({ id: e.slug }));
