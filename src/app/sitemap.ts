@@ -3,7 +3,7 @@ export const dynamic = "force-static";
 import type { MetadataRoute } from "next";
 import { EQUIPMENT } from "./lib/equipment-data";
 
-const siteUrl = "https://lmlagencype.vercel.app";
+const siteUrl = "https://lmlagencype.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const equipmentPages = EQUIPMENT.map((item) => ({
