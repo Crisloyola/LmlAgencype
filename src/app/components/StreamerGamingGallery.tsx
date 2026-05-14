@@ -357,7 +357,7 @@ function MediaDisplay({ media, accent }: { media: MediaItem[]; accent: string })
 }
 
 // ─── Project Card ─────────────────────────────────────────────────────────────
-function ProjectCard({ event, accent, onClick }: { event: EventItem; accent: string; onClick: () => void }) {
+function ProjectCard({ event, accent, gameLogo, gameLogoSize, onClick }: { event: EventItem; accent: string; gameLogo?: string; gameLogoSize?: string; onClick: () => void }) {
   const thumb = getThumb(event.media)
   const count = event.media.length
   const igBadge = event.media.some((m) => m.type === 'instagram')
@@ -400,19 +400,28 @@ function ProjectCard({ event, accent, onClick }: { event: EventItem; accent: str
           </span>
         ) : <span />}
         {count > 1 && (
-          <span className="flex items-center gap-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-0.5">
-            <svg className="w-2.5 h-2.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <span className="flex items-center gap-1.5 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1">
+            <svg className="w-3.5 h-3.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <span className="text-white text-[9px] font-semibold">{count}</span>
+            <span className="text-white text-xs font-semibold">{count}</span>
           </span>
         )}
       </div>
 
-      {/* Título abajo */}
-      <div className="absolute bottom-0 left-0 right-0 p-3.5 z-10">
-        <div className="w-5 h-0.5 rounded-full mb-2" style={{ backgroundColor: accent }} />
-        <p className="text-white text-sm md:text-base font-bold leading-snug line-clamp-2">{event.title}</p>
+      {/* Título y logo abajo */}
+      <div className="absolute bottom-0 left-0 right-0 p-3.5 z-10 flex items-end justify-between gap-2">
+        <div className="min-w-0 flex-1">
+          <div className="w-5 h-0.5 rounded-full mb-2" style={{ backgroundColor: accent }} />
+          <p className="text-white text-sm md:text-base font-bold leading-snug line-clamp-2">{event.title}</p>
+        </div>
+        {gameLogo && (
+          <img
+            src={gameLogo}
+            alt="game"
+            className={`${gameLogoSize ?? 'w-10 h-10'} object-contain drop-shadow-lg opacity-90 shrink-0`}
+          />
+        )}
       </div>
     </button>
   )
@@ -576,26 +585,18 @@ function FeaturedHero() {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function StreamerGamingGallery() {
-  const [activeCatId,  setActiveCatId]  = useState('streamers')
-  const [activeGameId, setActiveGameId] = useState<string | null>(null)
-  const [modal,        setModal]        = useState<{ event: EventItem; accent: string } | null>(null)
+  const [activeCatId, setActiveCatId] = useState('streamers')
+  const [modal,       setModal]       = useState<{ event: EventItem; accent: string } | null>(null)
+  const cardsSwiperRef = useRef<SwiperType | null>(null)
 
   const activeCategory = categories.find((c) => c.id === activeCatId)!
-  const activeGame     = activeCategory.games?.find((g) => g.id === activeGameId) ?? null
 
-  // Cards a mostrar: si hay juego activo → sus eventos; si es streamers → eventos de la categoría
-  const visibleEvents  = activeGame ? activeGame.events : activeCategory.events
-  const cardAccent     = activeGame?.accent ?? activeCategory.accent
-
-  const handleCategoryChange = (catId: string) => {
-    setActiveCatId(catId)
-    setActiveGameId(null)
-  }
-
-  const handleGameSelect = (gameId: string) => {
-    // Toggle: si ya está activo, deselecciona
-    setActiveGameId((prev) => (prev === gameId ? null : gameId))
-  }
+  type FlatEvent = { event: EventItem; accent: string; gameLogo?: string; gameLogoSize?: string }
+  const visibleCards: FlatEvent[] = activeCategory.games
+    ? activeCategory.games.flatMap((g) =>
+        g.events.map((ev) => ({ event: ev, accent: g.accent, gameLogo: g.logo, gameLogoSize: g.id === 'csgo' ? 'w-14 h-14' : 'w-10 h-10' }))
+      )
+    : activeCategory.events.map((ev) => ({ event: ev, accent: activeCategory.accent }))
 
   return (
     <section className="text-white mt-8">
@@ -617,7 +618,7 @@ export default function StreamerGamingGallery() {
         {categories.map((cat) => (
           <button
             key={cat.id}
-            onClick={() => handleCategoryChange(cat.id)}
+            onClick={() => { setActiveCatId(cat.id); cardsSwiperRef.current?.slideTo(0) }}
             className="relative px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-300"
             style={{ color: activeCatId === cat.id ? cat.accent : '#555' }}
           >
@@ -630,84 +631,31 @@ export default function StreamerGamingGallery() {
         ))}
       </div>
 
-      {/* ── Game Logo Selector (solo en GAMING) ── */}
-      {activeCategory.games && (
-        <div className="flex items-center overflow-x-auto scrollbar-hide mb-8 pb-1">
-          {activeCategory.games.map((game, idx) => {
-            const isActive = activeGameId === game.id
-            const isLast   = idx === activeCategory.games!.length - 1
-            return (
-              <div key={game.id} className="flex items-center shrink-0">
-                <button
-                  onClick={() => handleGameSelect(game.id)}
-                  className="flex flex-col items-center gap-2 px-6 group"
-                >
-                  <img
-                    src={game.logo}
-                    alt={game.name}
-                    className="w-11 h-11 object-contain transition-all duration-300"
-                    style={{
-                      filter:    isActive ? 'none' : 'grayscale(1)',
-                      opacity:   isActive ? 1 : 0.35,
-                      transform: isActive ? 'scale(1.15)' : 'scale(1)',
-                    }}
-                  />
-                  <div className="flex flex-col items-center gap-1">
-                    <span
-                      className="text-[11px] font-semibold tracking-wide transition-colors duration-300"
-                      style={{ color: isActive ? '#fff' : '#444' }}
-                    >
-                      {game.name}
-                    </span>
-                    <span
-                      className="block h-[2px] w-4 rounded-full transition-all duration-300"
-                      style={{ backgroundColor: isActive ? game.accent : 'transparent' }}
-                    />
-                  </div>
-                </button>
-                {!isLast && (
-                  <div className="h-10 w-px bg-gradient-to-b from-transparent via-[#33363F] to-transparent shrink-0" />
-                )}
-              </div>
-            )
-          })}
-        </div>
-      )}
-
-      {/* ── Cards ── */}
-      {visibleEvents.length > 0 ? (
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 px-1 md:flex-wrap md:overflow-x-visible md:pb-0">
-          {visibleEvents.map((event) => (
-            <ProjectCard
-              key={event.id}
-              event={event}
-              accent={cardAccent}
-              onClick={() => setModal({ event, accent: cardAccent })}
-            />
+      {/* ── Cards Carrusel ── */}
+      <div className="overflow-hidden">
+        <Swiper
+          modules={[Autoplay]}
+          onSwiper={(s) => { cardsSwiperRef.current = s }}
+          slidesPerView="auto"
+          spaceBetween={16}
+          loop={visibleCards.length > 3}
+          autoplay={{ delay: 3500, disableOnInteraction: true, pauseOnMouseEnter: true }}
+          speed={700}
+          className="w-full"
+        >
+          {visibleCards.map(({ event, accent: cardAccent, gameLogo, gameLogoSize }) => (
+            <SwiperSlide key={event.id} style={{ width: 'auto' }}>
+              <ProjectCard
+                event={event}
+                accent={cardAccent}
+                gameLogo={gameLogo}
+                gameLogoSize={gameLogoSize}
+                onClick={() => setModal({ event, accent: cardAccent })}
+              />
+            </SwiperSlide>
           ))}
-        </div>
-      ) : (
-        /* Si estamos en GAMING y no hay juego seleccionado, mostrar prompt */
-        activeCategory.games && !activeGameId ? (
-          <div className="flex flex-col items-center justify-center py-16 gap-3">
-            <p className="text-[#444] text-sm uppercase tracking-widest font-semibold">
-              Selecciona un juego para ver los proyectos
-            </p>
-            <div className="flex gap-3 mt-2">
-              {activeCategory.games.map((g) => (
-                <button
-                  key={g.id}
-                  onClick={() => handleGameSelect(g.id)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#2a2a2a] hover:border-[#444] transition-colors"
-                >
-                  <img src={g.logo} alt={g.name} className="w-5 h-5 object-contain" />
-                  <span className="text-[#666] text-xs font-semibold">{g.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : null
-      )}
+        </Swiper>
+      </div>
 
       {/* Modal */}
       {modal && (
