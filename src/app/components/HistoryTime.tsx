@@ -18,7 +18,8 @@ const originalTimelineData: TimelineItem[] = [
   },
 ];
 
-const timelineData: TimelineItem[] = Array(20)
+// Duplicamos solo 3 veces para que el scroll infinito funcione sin saturar la página
+const timelineData: TimelineItem[] = Array(3)
   .fill(null)
   .flatMap(() => originalTimelineData);
 

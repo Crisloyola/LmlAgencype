@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* Copyright and Terms */}
           <div className="pt-4 mt-6 border-t border-[#33363F] flex flex-col md:flex-row justify-between items-center gap-2 text-center">
-            <p className="text-sm">Copyright © 2026 Scout. All rights reserved.</p>
+            <p className="text-sm">Copyright © 2026 LML Agency. All rights reserved.</p>
             <button
               onClick={() => setShowTerms(true)}
               className="text-sm text-[#33363F] hover:text-[#B2FA03] transition-colors underline underline-offset-4"
