@@ -18,6 +18,7 @@ type EventItem = {
   media: MediaItem[]
   accent?: string
   darkText?: boolean
+  coming?: boolean
 }
 
 type GameGroup = {
@@ -81,6 +82,8 @@ const categories: CategoryData[] = [
           { type: 'instagram', url: 'https://www.instagram.com/p/DIRg6RpzAZw/', thumbnail: '/stream/fabio01.webp' },
         ],
       },
+      { id: 'coming-stream-1', title: 'Próximamente', media: [], coming: true },
+      { id: 'coming-stream-2', title: 'Próximamente', media: [], coming: true },
     ],
   },
   {
@@ -185,6 +188,21 @@ const categories: CategoryData[] = [
               { type: 'image', src: '/gaming/odifinal/OdysseyCupFinal-143.webp' },
             ],
           },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'eventos',
+    label: 'EVENTOS ESPECIALES',
+    accent: '#F0A500',
+    darkText: false,
+    events: [
+      {
+        id: 'evento-especial-1',
+        title: 'Evento Especial',
+        media: [
+          { type: 'instagram', url: 'https://www.instagram.com/p/DQUol5uAQpd/' },
         ],
       },
     ],
@@ -358,6 +376,22 @@ function MediaDisplay({ media, accent }: { media: MediaItem[]; accent: string })
 
 // ─── Project Card ─────────────────────────────────────────────────────────────
 function ProjectCard({ event, accent, gameLogo, gameLogoSize, onClick }: { event: EventItem; accent: string; gameLogo?: string; gameLogoSize?: string; onClick: () => void }) {
+  if (event.coming) {
+    return (
+      <div
+        className="shrink-0 w-52 md:w-64 lg:w-72 rounded-2xl border border-dashed border-[#33363F] flex flex-col items-center justify-center gap-3"
+        style={{ aspectRatio: '2/3' }}
+      >
+        <div className="w-12 h-12 rounded-full border border-[#2a2a2a] flex items-center justify-center">
+          <svg className="w-5 h-5 text-[#444]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <p className="text-[#444] text-[10px] uppercase tracking-[0.25em] font-semibold">Próximamente</p>
+      </div>
+    )
+  }
+
   const thumb = getThumb(event.media)
   const count = event.media.length
   const igBadge = event.media.some((m) => m.type === 'instagram')
