@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 import FeaturesSection from "./components/FeatureSection";
 import Footer from "./components/Footer";
-import Herosection from "./components/Herosection";
 import HistoryTime from "./components/HistoryTime";
 import Navbar from "./components/NavbarSection";
 import FloatingAudioPlayer from "./components/FloatingPlayer";
 import VideoPlayer from "./components/VideoPlayer";
 import HeroBanner from "./components/HeroBanner";
+import StreamerGamingGallery from "./components/StreamerGamingGallery";
 
 export default function Home() {
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -57,8 +57,10 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10">
           <Navbar />
-          <Herosection />
-          <VideoPlayer />
+          <div className="max-w-7xl mx-auto px-6">
+            <StreamerGamingGallery />
+          </div>
+
           <FeaturesSection />
 
           <div className="max-w-7xl mx-auto mt-12">

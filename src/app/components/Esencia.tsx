@@ -1,5 +1,6 @@
 
 import CarruselTabs from './CarruselTaps';
+import StreamerGamingGallery from './StreamerGamingGallery';
 import { motion } from 'framer-motion';
 
 export default function NuestraEsencia() {
@@ -83,10 +84,7 @@ export default function NuestraEsencia() {
           </div>
         </div>
 
-        {/* Carrusel */}
-        <div className="w-full">
-          <CarruselTabs />
-        </div>
+
       </div>
     </motion.section>
   );
