@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type TimelineItem =
   | { year: string; image: string; text: string }
@@ -18,78 +18,29 @@ const originalTimelineData: TimelineItem[] = [
   },
 ];
 
-// Duplicamos solo 3 veces para que el scroll infinito funcione sin saturar la página
-const timelineData: TimelineItem[] = Array(3)
-  .fill(null)
-  .flatMap(() => originalTimelineData);
+// 2 copias — mínimo para loop CSS seamless (antes eran 3)
+const timelineData: TimelineItem[] = [...originalTimelineData, ...originalTimelineData];
 
 export default function TimelineCarousel() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const scrollStep = 1;
-    const delay = 20;
-
-    const scroll = () => {
-      if (!container || isDragging) return;
-      container.scrollLeft += scrollStep;
-      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-        container.scrollLeft = 0;
-      }
-    };
-
-    const interval = setInterval(scroll, delay);
-    return () => clearInterval(interval);
-  }, [isDragging]);
-
-  const handleInteractionStart = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    const container = scrollRef.current;
-    if (!container) return;
-
-    setIsDragging(true);
-    const startX = "touches" in e ? e.touches[0].pageX : e.pageX;
-    setStartX(startX - container.offsetLeft);
-    setScrollLeft(container.scrollLeft);
-  };
-
-  const handleInteractionMove = (e: React.MouseEvent | React.TouchEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const x = "touches" in e ? e.touches[0].pageX : e.pageX;
-    const walk = x - startX;
-    container.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleInteractionEnd = () => {
-    setIsDragging(false);
-  };
-
   return (
     <div className="w-full text-white -mt-20 px-4 overflow-hidden">
-      <div className="relative">
-        <div
-          ref={scrollRef}
-          className="overflow-x-scroll scroll-smooth scrollbar-hide touch-pan-x"
-          onMouseDown={handleInteractionStart}
-          onMouseMove={handleInteractionMove}
-          onMouseUp={handleInteractionEnd}
-          onMouseLeave={handleInteractionEnd}
-          onTouchStart={handleInteractionStart}
-          onTouchMove={handleInteractionMove}
-          onTouchEnd={handleInteractionEnd}
-        >
-          <div className="flex space-x-1 min-w-max">
+      <style>{`
+        @keyframes timeline-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .timeline-track {
+          animation: timeline-scroll 40s linear infinite;
+          will-change: transform;
+        }
+        .timeline-wrapper:hover .timeline-track {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div className="relative timeline-wrapper">
+        <div className="overflow-hidden">
+          <div className="timeline-track flex space-x-1 min-w-max">
             {timelineData.map((item, index) => (
               <div key={index} className="flex flex-col items-start relative">
                 <h1 className="text-[55px] ml-8">{item.year}</h1>
@@ -147,4 +98,3 @@ function Carousel({ images }: { images: string[] }) {
     </div>
   );
 }
-
