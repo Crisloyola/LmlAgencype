@@ -398,7 +398,7 @@ function MediaDisplay({ media, accent }: { media: MediaItem[]; accent: string })
       {sorted.length > 1 && (
         <div className="flex gap-2 mt-4 overflow-x-auto scrollbar-hide pb-1 justify-center">
           {sorted.map((item, i) => {
-            const src = item.type === 'image' ? item.src : item.type === 'instagram' ? item.thumbnail : item.poster
+            const src = item.type === 'image' ? item.src : item.type === 'instagram' ? item.thumbnail : item.type === 'tiktok' ? item.thumbnail : item.poster
             const isActive = i === current
             return (
               <button
