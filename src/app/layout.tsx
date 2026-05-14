@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_PE",
-    url: siteUrl,
+    url: "/",
     siteName: "LML Agency",
     title: "LML Agency | Alquiler de Equipos Audiovisuales en Lima, Perú",
     description:
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     images: ["/lmlagency1.png"],
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: "/",
   },
   icons: {
     icon: [{ url: "/Logo.svg", type: "image/svg+xml" }],

@@ -1,5 +1,7 @@
+"use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";// Assuming this is a component that renders a video
+import { motion, AnimatePresence } from "framer-motion";
+
 interface FAQ {
   question: string;
   answer: string;
@@ -45,7 +47,25 @@ export default function FAQWithImage() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }} 
@@ -116,5 +136,6 @@ export default function FAQWithImage() {
 
       
     </motion.div>
+    </>
   );
 }

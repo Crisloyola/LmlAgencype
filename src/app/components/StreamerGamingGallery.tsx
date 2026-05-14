@@ -638,7 +638,7 @@ export default function StreamerGamingGallery() {
           onSwiper={(s) => { cardsSwiperRef.current = s }}
           slidesPerView="auto"
           spaceBetween={16}
-          loop={visibleCards.length > 3}
+          loop={false}
           autoplay={{ delay: 3500, disableOnInteraction: true, pauseOnMouseEnter: true }}
           speed={700}
           className="w-full"
