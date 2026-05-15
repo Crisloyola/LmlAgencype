@@ -7,6 +7,7 @@ const siteUrl = "https://lmlagencype.com";
 const pageUrl = `${siteUrl}/alquiler`;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Alquiler de Equipos Audiovisuales en Lima",
   description:
     "Alquila cámaras Sony, iluminación Godox, micrófonos Shure y equipos de streaming en Lima desde S/ 50/día. Disponibles para eventos, producciones y contenido digital. LML Agency.",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/lmlagency1.png",
+        url: `${siteUrl}/lmlagency1.png`,
         width: 1200,
         height: 630,
         alt: "Alquiler de equipos audiovisuales Lima — LML Agency",

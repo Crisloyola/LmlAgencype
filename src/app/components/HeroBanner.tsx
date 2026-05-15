@@ -82,30 +82,31 @@ export default function HeroBanner() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Contenido — slide 1 */}
+            {/* Contenido — slide 1: AGENCIA */}
             <AnimatePresence>
               {!slides[current].cta && (
                 <motion.div
                   key="slide1-content"
                   className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 gap-3 max-w-lg"
-                  style={{ background: "linear-gradient(to right, rgba(0,0,0,0.75) 60%, transparent)" }}
+                  style={{ background: "linear-gradient(to right, rgba(0,0,0,0.80) 60%, transparent)" }}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
                   <span className="text-[#B2FA03] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">
-                    Latam Masters Agency
+                    Productora Audiovisual · Lima, Perú
                   </span>
-                  <p className="text-white text-sm sm:text-base leading-relaxed">
-                    Sabemos que un gran equipo de audio o video no sirve de nada sin el conocimiento adecuado.
-                    Por eso nuestro equipo se encarga de que recibas:
-                  </p>
+                  <h2 className="text-white font-black uppercase leading-none text-3xl sm:text-4xl">
+                    Hacemos que<br />
+                    <span style={{ color: "#B2FA03" }}>tu proyecto</span><br />
+                    brille en pantalla
+                  </h2>
                   <ul className="flex flex-col gap-2">
                     {[
-                      "Equipos impecables y desinfectados. 🎙️",
-                      "Asesoría técnica personalizada. 💡",
-                      "Puntualidad y compromiso con tu cronograma. 🚀",
+                      "Streamers & contenido digital",
+                      "Torneos y eventos de gaming",
+                      "Eventos corporativos y especiales",
                     ].map((b) => (
                       <li key={b} className="flex items-center gap-2.5 text-white text-xs sm:text-sm font-medium">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#B2FA03] shrink-0" />
