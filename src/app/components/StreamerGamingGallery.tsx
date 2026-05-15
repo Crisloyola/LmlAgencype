@@ -155,6 +155,22 @@ const categories: CategoryData[] = [
               { type: 'image', src: '/gaming/zeinpresencial/Zeinternational-21.webp' },
             ],
           },
+          {
+            id: 'redragon-dota2',
+            title: 'Redragon Dota 2',
+            accent: '#ef4444',
+            darkText: false,
+            media: [
+              { type: 'image', src: '/gaming/redragon/re1.jpeg' },
+              { type: 'image', src: '/gaming/redragon/re2.jpeg' },
+              { type: 'image', src: '/gaming/redragon/re3.jpeg' },
+              { type: 'image', src: '/gaming/redragon/re4.jpeg' },
+              { type: 'image', src: '/gaming/redragon/re5.jpeg' },
+              { type: 'image', src: '/gaming/redragon/re6.jpeg' },
+              { type: 'image', src: '/gaming/redragon/re7.jpeg' },
+              { type: 'instagram', url: 'https://www.instagram.com/p/DRr7SzIjjld/', thumbnail: '/gaming/redragon/re1.jpeg' },
+            ],
+          },
         ],
       },
       {
