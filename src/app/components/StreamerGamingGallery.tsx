@@ -305,7 +305,7 @@ function MediaDisplay({ media, accent }: { media: MediaItem[]; accent: string })
             <SwiperSlide key={i}>
 
               {item.type === 'image' && (
-                <div className="relative w-full h-full cursor-zoom-in" onClick={() => setLightbox(item.src)}>
+                <div className="relative w-full h-full c  ursor-zoom-in" onClick={() => setLightbox(item.src)}>
                   <img src={item.src} aria-hidden className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40 pointer-events-none" />
                   <div className="relative w-full h-full flex items-center justify-center z-10">
                     <img src={item.src} alt={item.alt || `foto ${i + 1}`} className="max-w-full max-h-full object-contain drop-shadow-2xl" />
