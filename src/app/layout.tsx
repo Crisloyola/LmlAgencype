@@ -83,9 +83,9 @@ export const metadata: Metadata = {
     canonical: "https://lmlagencype.com",
   },
   icons: {
-    icon: [{ url: "/Logo.svg", type: "image/svg+xml" }],
-    shortcut: "/Logo.svg",
-    apple: "/apple-touch-icon.png",
+    icon: [{ url: "/iconlml.png", type: "image/png" }],
+    shortcut: "/iconlml.png",
+    apple: "/iconlml.png",
   },
 };
 
