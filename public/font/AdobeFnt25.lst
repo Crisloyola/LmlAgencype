@@ -1,0 +1,73 @@
+%!Adobe-FontList 1.25
+%Locale:0x80a
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:KantumruyPro-Bold
+FamilyName:Kantumruy Pro
+StyleName:Bold
+FullName:Kantumruy Pro Bold
+MenuName:Kantumruy Pro
+StyleBits:2
+WritingScript:Khmer
+OutlineFileName:D:\Clientes web\LmlAgencype\public\Font\KantumBold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:92696
+FileModTime:1778036391
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Kantumruy Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:KantumruyPro-Medium
+FamilyName:Kantumruy Pro
+StyleName:Medium
+FullName:Kantumruy Pro Medium
+MenuName:Kantumruy Pro Medium
+StyleBits:0
+WritingScript:Khmer
+OutlineFileName:D:\Clientes web\LmlAgencype\public\Font\KantumMedium.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:92932
+FileModTime:1778036391
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Kantumruy Pro Medium
+NameArray:0,Win,16,Kantumruy Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:KantumruyPro-Regular
+FamilyName:Kantumruy Pro
+StyleName:Regular
+FullName:Kantumruy Pro Regular
+MenuName:Kantumruy Pro
+StyleBits:0
+WritingScript:Khmer
+OutlineFileName:D:\Clientes web\LmlAgencype\public\Font\KantumRegular.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:92860
+FileModTime:1778036391
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Kantumruy Pro
+%EndFont
+
