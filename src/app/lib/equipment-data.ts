@@ -511,7 +511,7 @@ export const EQUIPMENT: Equipment[] = [
     images: ["/equipo/sony-a7cmarkii.png", "/equipo/sony-a7cmarkii.png"],
     tagline: "Mirrorless full frame híbrida 33 MP con grabación 4K 10-bit",
     description:
-      "La Sony A7 IV es una cámara mirrorless full frame híbrida de alto rendimiento, diseñada tanto para fotografía profesional como para producción de video. Equipa un sensor Full Frame de 33 MP, grabación 4K 10-bit y un avanzado sistema de autofocus con inteligencia artificial, convirtiéndola en una de las cámaras más versátiles para creadores de contenido, fotógrafos y videógrafos profesionales.",
+      "La Sony Alpha A7C II es una cámara mirrorless full frame híbrida de alto rendimiento, diseñada tanto para fotografía profesional como para producción de video. Equipa un sensor Full Frame de 33 MP, grabación 4K 10-bit y un avanzado sistema de autofocus con inteligencia artificial, convirtiéndola en una de las cámaras más versátiles para creadores de contenido, fotógrafos y videógrafos profesionales.",
     specs: [
       { label: "Sensor", value: "Full Frame Exmor R de 33 MP" },
       { label: "Video", value: "4K hasta 60 fps" },
@@ -523,7 +523,7 @@ export const EQUIPMENT: Equipment[] = [
       { label: "Montura", value: "Sony E-Mount" },
     ],
     includes: [
-      "Sony A7 IV",
+      "Sony Alpha A7C II",
       "Batería y cargador",
       "Cable USB-C",
     ],
