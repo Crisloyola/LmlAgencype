@@ -32,11 +32,11 @@ export type Equipment = {
 // ── Categories ────────────────────────────────────────────────────────────────
 
 export const CATEGORIES: Category[] = [
-  { id: "all",         label: "Todo",                    emoji: "📦" },
-  { id: "inalambrico", label: "Eventos",                 emoji: "🎤" },
-  { id: "audio",       label: "Podcast & Conferencias",  emoji: "🎙️" },
-  { id: "video",       label: "Streaming & Video",       emoji: "🎥" },
-  { id: "camaras",     label: "Cámaras",                 emoji: "📷" },
+  { id: "all", label: "Todo", emoji: "📦" },
+  { id: "inalambrico", label: "Eventos", emoji: "🎤" },
+  { id: "audio", label: "Podcast & Conferencias", emoji: "🎙️" },
+  { id: "video", label: "Streaming & Video", emoji: "🎥" },
+  { id: "camaras", label: "Cámaras", emoji: "📷" },
 ];
 
 // ── Equipment list ────────────────────────────────────────────────────────────
@@ -474,7 +474,7 @@ export const EQUIPMENT: Equipment[] = [
     name: "Sony FX30 Cinema Camera",
     brand: "Sony",
     category: "camaras",
-    images: ["/equipo/sony-fx30.png","/equipo/sony-fx31.png"],
+    images: ["/equipo/sony-fx30.png", "/equipo/sony-fx31.png"],
     tagline: "Cámara de cine compacta Super 35 con grabación 4K hasta 120 fps",
     description:
       "La Sony FX30 es una cámara de cine digital compacta de la línea Cinema Line de Sony, diseñada para producción audiovisual profesional. Cuenta con sensor Super 35 / APS-C, grabación en 4K hasta 120 fps y perfiles cinematográficos como S-Cinetone y S-Log3, ideales para lograr una imagen con aspecto cinematográfico profesional. Además, ofrece excelente autofocus, alto rango dinámico y compatibilidad con lentes Sony E-Mount.",
@@ -504,11 +504,11 @@ export const EQUIPMENT: Equipment[] = [
   },
   {
     id: 15,
-    slug: "sony-alpha-a7iv",
-    name: "Sony Alpha a7 IV",
+    slug: "sony-alpha-a7cmarkii",
+    name: "Sony Alpha A7C II",
     brand: "Sony",
     category: "camaras",
-    images: ["/equipo/sony-a7iv.png","/equipo/sony-a7iv1.png"],
+    images: ["/equipo/sony-a7cmarkii.png", "/equipo/sony-a7cmarkii.png"],
     tagline: "Mirrorless full frame híbrida 33 MP con grabación 4K 10-bit",
     description:
       "La Sony A7 IV es una cámara mirrorless full frame híbrida de alto rendimiento, diseñada tanto para fotografía profesional como para producción de video. Equipa un sensor Full Frame de 33 MP, grabación 4K 10-bit y un avanzado sistema de autofocus con inteligencia artificial, convirtiéndola en una de las cámaras más versátiles para creadores de contenido, fotógrafos y videógrafos profesionales.",

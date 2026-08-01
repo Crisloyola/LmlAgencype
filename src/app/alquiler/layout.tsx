@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "alquiler de iluminación Lima",
     "alquiler de audio Lima",
     "alquiler de streaming Lima",
-    "alquiler Sony A7 Lima",
+    "alquiler Sony A7C Mark II Lima",
     "alquiler Blackmagic Lima",
     "alquiler ATEM Mini Lima",
     "alquiler Shure SM7B Lima",
